@@ -334,7 +334,7 @@ Duration: 20 minutes
 
     ![Open variables tab](media/25.png)
 
-3. Add three Pipeline variables as name - value pairs and then select **Save**:
+3. Add four Pipeline variables as name - value pairs and then select **Save**:
 
     a. Name: `aks_name` Value: `aks-cluster01`
     
@@ -346,7 +346,8 @@ Duration: 20 minutes
 
     **Note**
 
-    The name of the Azure region should be the same one that was used to create Azure Machine Learning workspace earlier on.
+    - Keep the scope for the variables to `Deploy & Test` stage.
+    - The name of the Azure region should be the same one that was used to create Azure Machine Learning workspace earlier on.
     
       ![Add Pipeline variables](media/26.png)
       
