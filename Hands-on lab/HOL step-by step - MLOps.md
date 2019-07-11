@@ -554,7 +554,7 @@ In this exercise you learn how to monitor the performance of a deployed model.
     ![Locate telemetry storage account](media/telemetry-05.png)
 
 3. Go to **Storage Explorer (preview)**.
-4. Expand the **BLOB CONTAINERS** section and identify the **modeldata** container
+4. Expand the **BLOB CONTAINERS** section and identify the **modeldata** container. Select **more->refresh** if you do not see **modeldata** container.
 
     ![Locate telemetry blob container in storage account](media/telemetry-06.png) 
 
