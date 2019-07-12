@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
 MLOps
@@ -42,21 +42,21 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 1. Azure subscription. You will need a valid and active Azure account to complete the quickstarts. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/).
 
-    **Note**
+   - The Microsoft Azure subscription must be pay-as-you-go or MSDN. 
 
-    The Microsoft Azure subscription must be pay-as-you-go or MSDN. 
+   - Trial subscriptions will not work. You will run into issues with Azure resource quota limits. 
 
-    Trial subscriptions will not work. You will run into issues with Azure resource quota limits. 
+   - Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
 
-    Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
+2. Azure DevOps subscription. You will need a valid and active Azure DevOps account to complete the quickstarts. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/en-us/services/devops/). 
 
-2. Azure DevOps subscription. You will need a valid and active Azure DevOps account to complete the quickstarts. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/en-us/services/devops/). Note that you will need privileges to create projects on the DevOps account. Also, you need priveleges to create Service Principal in the tenet. This translates to `Ensure that the user has 'Owner' or 'User Access Administrator' permissions on the Subscription`.
+>**Note**: You will need privileges to create projects on the DevOps account. Also, you need privileges to create Service Principal in the tenet. This translates to `Ensure that the user has 'Owner' or 'User Access Administrator' permissions on the Subscription`.
 
 3. Azure Notebooks. You will need an Azure Notebooks project to import the quickstart notebooks into. See instructions below on how to prepare your Azure Notebooks environment.
 
 4. Azure Machine Learning service workspace. The workspace is created during Exercise 1 from the hands-on lab.
 
-    **Note**: Make sure you execute successfully all steps related to the Azure Machine Learning service workspace setup in Exercise 1. A correctly set up workspace is needed by all the other exercises.
+   >**Note**: Make sure you execute successfully all steps related to the Azure Machine Learning service workspace setup in Exercise 1. A correctly set up workspace is needed by all the other exercises.
 
 
 ## Before the hands-on lab
@@ -67,22 +67,22 @@ At a high level, here are the setup tasks you will need to perform to prepare yo
 
 1. Setup an Azure Notebooks account.
 
-2. Setup Azure Notebooks Project
+2. Setup an Azure Notebooks Project.
 
-3. Start the Notebook Server
+3. Start the Notebook Server.
 
 
 ### Task 1: Setup an Azure Notebooks account
 
 1. In your browser, navigate to [https://notebooks.azure.com](https://notebooks.azure.com).
 
-2. Select Sign In from the top, right corner and sign in using your Microsoft Account credentials. After a successful login, you will have implicitly created the account and are ready to continue.
+2. Select **Sign In** from the top, right corner and sign in using your Microsoft Account credentials. After a successful login, you will have implicitly created the account and are ready to continue.
 
 ### Task 2: Setup an Azure Notebooks project
 
 1. Log in to Azure Notebooks.
 
-2. Navigate to **My Projects** page
+2. Navigate to the **My Projects** page.
 
 3. Select **Upload GitHub Repo**.
 
@@ -94,11 +94,14 @@ At a high level, here are the setup tasks you will need to perform to prepare yo
 
 ### Task 3: Start the Notebook server
 
-1. Navigate to your project: ```mcw-mlops```
+1. Navigate to your project: ```mcw-mlops```.
 
 2. Start your Notebook server on **Free Compute** by selecting the **Play** icon in the toolbar as shown:
 
    ![Start Notebook Server on Free Compute](media/prepare-02.png)
 
-3. It should open the **Jupyter Notebooks** interface.
+3. This will open the **Jupyter Notebooks** interface.
+
+You should follow all steps provided *before* performing the Hands-on lab.
+
 
