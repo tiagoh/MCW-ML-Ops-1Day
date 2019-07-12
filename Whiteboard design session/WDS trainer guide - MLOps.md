@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
 MLOps
@@ -170,9 +170,9 @@ When participants are doing activities, you can **look ahead to refresh your mem
 
 ## Abstract and learning objectives 
 
-In this workshop, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations, and manage the classification thru their web application. The entire process from model creation, application packaging, model deployment and application deployment needs to occur as one unified repeatable, pipeline. 
+In this whiteboard design session, you will work in a group to design a process Trey Research can follow for orchestrating and deploying updates to the application and the deep learning model in a unified way. You will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments and most importantly improves inferencing speed over the native model. You will design a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application and inferencing web service. You will also learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues.
 
-At the end of this workshop, you will be better able to design and implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.
+At the end of this whiteboard design session, you will be better able to design end-to-end solutions that will fully operationalize deep learning models, inclusive of all application components that depend on the model.
 
 ## Step 1: Review the customer case study 
 
@@ -192,13 +192,11 @@ Directions:  With all participants in the session, the facilitator/SME presents 
 
 ### Customer situation
 
-Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. Trey Research has decades specializing in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.
+Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes, to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. Trey Research has decades specializing in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.
 
-As their first effort of this combined initiative, they would to define a process for operationalizing deep learning that encompasses all phases of the application life cycle along with model creation and deployment of a deep learning model. For this first proof of concept, they would like to focus on component compliance. Specifically they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. Even though this first scenario is focused on vehicle components, they believe this approach will generalize to any scenario involving an inventory of components (which all of their manufacturing customers deal with). The component descriptions (which are free form text) are entered and managed via a web application. This web application take new component descriptions entered by authorized technicians and labels the component as compliant or non-compliant based on the text. For the PoC, they have exported all of their labeled component descriptions as flat files (CSV format).
+As their first effort of this combined initiative, they would like to define a process for operationalizing deep learning that encompasses all phases of the application life cycle along with model creation and deployment of a deep learning model. For this first proof of concept (PoC), they would like to focus on component compliance. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing (NLP) techniques to scan through vehicle specification documents to find compliance issues with new regulations. Even though this first scenario is focused on vehicle components, they believe this approach will generalize to any scenario involving an inventory of components, which all of their manufacturing customers deal with. The component descriptions, which are free form text, are entered and managed via a web application. This web application take new component descriptions entered by authorized technicians and label the component as compliant or non-compliant, based on the text.
 
-According to Francine Fischer, CIO of Trey Research, they want to ensure the overall process they create enables them to update both the underlying model and the web app in one using a standardized approach. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues. They believe they can accomplish most, if not all, of this using Azure Machine Learning but are wanting to be certain.
-
-Finally, Trey would like to ensure that the process they establish is not littered with username and password credentials used to access the component used during build and release.
+They want to ensure the overall process they create enables them to update both the underlying model and the web app in one, unified pipeline. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues.
 
 ### Customer needs 
 
@@ -217,11 +215,9 @@ Finally, Trey would like to ensure that the process they establish is not litter
 
 3.  Obviously, we can't just have new models automatically deployed into production. What kind of safeguards can we put in place?
 
-
-
 ### Infographic for common scenarios
 
-![An example machine learning pipeline going from prepare data, to build and train models, to deploy and predict](images/example-pipeline.png)
+![An example machine learning pipeline going from prepare data, to build and train models, to deploy and predict.](images/example-pipeline.png)
 
 ## Step 2: Design a proof of concept solution
 
@@ -395,129 +391,133 @@ The primary audience is the business decision makers and technology decision mak
 
 1.  Without getting into the details (the following sections will address the details), diagram your initial vision for the solution. You will refine this diagram as you proceed.
 
-The high level architecture of the solution is illustrated in the following diagram.
+    The high-level architecture of the solution is illustrated in the following diagram.
 
-![Compliance and battery alerting AI solution diagram as described in the text that follows.](images/preferred-solution-overview.png)
+    ![Compliance and battery alerting AI solution diagram as described in the text that follows.](images/preferred-solution-overview.png)
 
-The overall approach is to orchestrate continuous integration and continuous delivery Azure Pipelines from Azure DevOps. These pipelines are triggered by changes to artifacts that describe a machine learning pipeline, that is created with the Azure Machine Learning SDK. For example, checking in a change to the model training script executes the Azure Pipelines Build Pipeline, which trains the model and creates the container image. Then this triggers an Azure Pipelines Release pipeline that deploys the model as a web service, by using the Docker image that was created in the Build pipeline. Once in production, the scoring web service is monitored using a combination of Application Insights and Azure Storage.
-
+    The overall approach is to orchestrate continuous integration and continuous delivery Azure Pipelines from Azure DevOps. These pipelines are triggered by changes to artifacts that describe a machine learning pipeline, that is created with the Azure Machine Learning SDK. For example, checking in a change to the model training script executes the Azure Pipelines Build Pipeline, which trains the model and creates the container image. Then this triggers an Azure Pipelines Release pipeline that deploys the model as a web service, by using the Docker image that was created in the Build pipeline. Once in production, the scoring web service is monitored using a combination of Application Insights and Azure Storage.
 
 *Component Classification*
 
 1.  What is the general pipeline for approaching the training of text analytic models such as this? What are the general steps you need to take to prepare the text data for performing tasks like classification?
 
-The core task in natural language processing (NLP) text pipelines is data preparation to express the textual data as numeric vectors by using word embeddings. The general pipeline begins by pre-processing or normalizing the text. This step typically includes tasks such as breaking the text into sentence and word tokens, standardizing the spelling of words, and removing overly common words (called stop words). The output of this phase is typically a multi-dimensional array consisting of an array of documents, each having an array of sentences, with each sentence having its own array of words. The next step is feature extraction, which creates a numeric representation of the textual documents. During feature extraction, a "vocabulary" of unique words is identified, and each word becomes a column in the output. Each row represents a document. The value in each cell is typically a measure of the relative importance of that word in the document, where if a word from the vocabulary does not appear, then that cell has a zero value in that column. This approach enables machine learning algorithms, which operate against arrays of numbers, to also operate against text. Deep learning algorithms operate on tensors, which are also vectors (or arrays of numbers), so this approach is also valid for preparing text for use with a deep learning algorithm. 
+    The core task in natural language processing (NLP) text pipelines is data preparation to express the textual data as numeric vectors by using word embeddings. The general pipeline begins by pre-processing or normalizing the text. This step typically includes tasks such as breaking the text into sentence and word tokens, standardizing the spelling of words, and removing overly common words (called stop words). The output of this phase is typically a multi-dimensional array consisting of an array of documents, each having an array of sentences, with each sentence having its own array of words. The next step is feature extraction, which creates a numeric representation of the textual documents. During feature extraction, a "vocabulary" of unique words is identified, and each word becomes a column in the output. Each row represents a document. The value in each cell is typically a measure of the relative importance of that word in the document, where if a word from the vocabulary does not appear, then that cell has a zero value in that column. This approach enables machine learning algorithms, which operate against arrays of numbers, to also operate against text. Deep learning algorithms operate on tensors, which are also vectors (or arrays of numbers), so this approach is also valid for preparing text for use with a deep learning algorithm. 
 
 2.  Provided that Trey wants to build the PoC using Azure Machine Learning, what is the first item they would want to deploy in Azure? 
 
-They would begin by deploying an Azure Machine Learning workspace. 
+    They would begin by deploying an Azure Machine Learning workspace. 
 
 3.  Within the above deployed item, what component would they use to orchestrate the various **machine learning** phases (specifically data access, model training and model evaluation)? Be specific about which programming language and framework or SDK they would use.
 
-Trey should consider building a machine learning pipeline. They can author these pipelines in Python using the Azure Machine Learning SDK.
+    Trey should consider building a machine learning pipeline. They can author these pipelines in Python using the Azure Machine Learning SDK.
 
 4.  Where would they author any scripts?
-For the machine learning phases listed, they could author the machine learning pipeline in Azure Notebooks, which provides a free-to-use notebook environment that can leverage the scalable compute provided by Azure and Azure Machine Learning Compute.
+
+    For the machine learning phases listed, they could author the machine learning pipeline in Azure Notebooks, which provides a free-to-use notebook environment that can leverage the scalable compute provided by Azure and Azure Machine Learning Compute.
 
 5. Where should Trey upload the component compliance data?
-Each Azure Machine Learning Workspace has a default datastore (and you can register additional datastores). By default, both Azure Files and Azure Blob storage are attached to the workspace and you can use either one. For the PoC, Trey could use the blob storage associated with the Workspace in Azure Blob Storage as the location to upload the component description CSV files. For production down the road, they might consider setting up a dedicated Azure Blob storage account that stand-alone from the workspace and could be a central data lake for all their documents, supporting analytics outside of the workspace.  
+
+    Each Azure Machine Learning Workspace has a default datastore (and you can register additional datastores). By default, both Azure Files and Azure Blob storage are attached to the workspace and you can use either one. For the PoC, Trey could use the blob storage associated with the Workspace in Azure Blob Storage as the location to upload the component description CSV files. For production down the road, they might consider setting up a dedicated Azure Blob storage account that stand-alone from the workspace and could be a central data lake for all their documents, supporting analytics outside of the workspace.  
 
 6.  Describe at a high level the objects involved in the scripted pipeline you would create for training the compliance classification model using Azure Machine Learning.
 
-**Data Store**
-Trey would create a Data Reference to the datastore that contains the component text files. They would also script creating or retrieving an existing Azure Machine Learning Compute (which would provide the computing cluster that would execute the training script).
+    **Data Store**
+    
+    Trey would create a Data Reference to the datastore that contains the component text files. They would also script creating or retrieving an existing Azure Machine Learning Compute (which would provide the computing cluster that would execute the training script).
 
-**Pipeline Definition Script**
-Next, in a script (the pipeline definition script) they would define pipeline steps in a pipeline object and then submit the pipeline object to run it. In the simplest case they could define a Pipeline with two PythonScriptSteps: 
-- The first PythonScriptStep would reference a python script that performs the actual training of the model, saves the trained model to disk and then registers the model with the model registry associated with the Azure Machine Learning workspace. 
-- The second PythonScriptStep references a separate Python script that would evaluate the model's performance and logs the results. Optionally, this PythonScriptStep could automatically deploy the model as a web service if it exceeded the performance of the previously deployed model. To accomplish this, the evaluation script would refer to a third Python script, the scoring script, that defines the web service logic. This scoring script would be packaged along with any dependencies and the trained model as a Docker image and registered in the Azure Container Registry that is deployed with the Azure Machine Learning workspace. 
-Both of the aforementioned scripts would make use of the Azure Machine Learning Python SDK. 
+    **Pipeline Definition Script**
 
-The pipeline definition script creates an Azure Machine Learning Experiment in the workspace, and submits the pipeline object that is created, and waits for it to complete.
+    Next, in a script (the pipeline definition script) they would define pipeline steps in a pipeline object and then submit the pipeline object to run it. In the simplest case they could define a Pipeline with two PythonScriptSteps: 
+    - The first PythonScriptStep would reference a python script that performs the actual training of the model, saves the trained model to disk and then registers the model with the model registry associated with the Azure Machine Learning workspace. 
+    - The second PythonScriptStep references a separate Python script that would evaluate the model's performance and logs the results. Optionally, this PythonScriptStep could automatically deploy the model as a web service if it exceeded the performance of the previously deployed model. To accomplish this, the evaluation script would refer to a third Python script, the scoring script, that defines the web service logic. This scoring script would be packaged along with any dependencies and the trained model as a Docker image and registered in the Azure Container Registry that is deployed with the Azure Machine Learning workspace.
+    
+    Both of the aforementioned scripts would make use of the Azure Machine Learning Python SDK. 
+
+    The pipeline definition script creates an Azure Machine Learning Experiment in the workspace, and submits the pipeline object that is created, and waits for it to complete.
 
 7.  Diagram what happens when you run a machine learning pipeline in Azure Machine Learning.
 
-When you first run a pipeline, Azure Machine Learning:
+    When you first run a pipeline, Azure Machine Learning:
 
-- Downloads the project snapshot to the compute target from the Blob storage associated with the workspace.
-- Builds a Docker image corresponding to each step in the pipeline.
-Downloads the docker image for each step to the compute target from the container registry.
-- Mounts the datastore, if a DataReference object is specified in a step. If mount is not supported, the data is instead copied to the compute target.
-- Runs the step in the compute target specified in the step definition.
-- Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user’s default datastore.
+    - Downloads the project snapshot to the compute target from the Blob storage associated with the workspace.
+    - Builds a Docker image corresponding to each step in the pipeline.
+    - Downloads the docker image for each step to the compute target from the container registry.
+    - Mounts the datastore, if a DataReference object is specified in a step. If mount is not supported, the data is instead copied to the compute target.
+    - Runs the step in the compute target specified in the step definition.
+    - Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user’s default datastore.
 
-This is illustrated by the following diagram:
-![Process diagram showing the activities that happen when running a pipeline, as described in the preceding text](images/run_an_experiment_as_a_pipeline.png)
+    This is illustrated by the following diagram:
+    
+    ![Process diagram showing the activities that happen when running a pipeline, as described in the preceding text.](images/run_an_experiment_as_a_pipeline.png)
 
 *Enabling DevOps for AI with MLOps*
 
 1.  Building on the approach you suggested to Trey for machine learning pipelines, what would you propose they use to fold them into a bigger DevOps pipeline for continuous integration and delivery that would result in a new scoring web service being deployed whenever there was a change to the code supporting model training. 
 
-Trey should use Azure Pipelines, which is a service of Azure DevOps Services. 
+    Trey should use Azure Pipelines, which is a service of Azure DevOps Services. 
 
 2.  In your Azure Pipelines design, give an example of what would trigger the execution of the pipeline?
 
-One example could be when a data scientist makes a change to the machine learning pipeline definition script and checks that script in to source control backed by an Azure DevOps Repo. 
+    One example could be when a data scientist makes a change to the machine learning pipeline definition script and checks that script in to source control backed by an Azure DevOps Repo. 
 
 3.  What type of Azure Pipeline would be triggered first in response (Build or Release)? 
 
-The first pipeline should be a Build pipeline. 
+    The first pipeline should be a Build pipeline. 
 
 4.  What are the core steps in this first pipeline? What does the pipeline output?
 
-The Build pipeline would need to perform the following steps:
-- Create the Linux host VM that would execute the pipeline definition script.
-- Create a new or get a reference to an existing Azure Machine Learning workspace
-- Create a new or get a reference to an existing Azure Machine Learning compute cluster, and trigger a scale up if needed.
-- Submit the machine learning pipeline for execution. 
+    The Build pipeline would need to perform the following steps:
+    - Create the Linux host VM that would execute the pipeline definition script.
+    - Create a new or get a reference to an existing Azure Machine Learning workspace
+    - Create a new or get a reference to an existing Azure Machine Learning compute cluster, and trigger a scale up if needed.
+    - Submit the machine learning pipeline for execution. 
 
-The outputs of this pipeline would be:
-- A set of build artifacts.
-- A trained model registered in the model registry of the workspace.
-- A Docker image registered in the Container Registry.
+    The outputs of this pipeline would be:
+    - A set of build artifacts.
+    - A trained model registered in the model registry of the workspace.
+    - A Docker image registered in the Container Registry.
 
 5.  After the first pipeline, what kind of Azure Pipeline would Trey define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
 
-Trey should define a Release pipeline. This pipeline would perform the following steps:
-- Create the Linux host VM that would execute the web service deployment script.
+    Trey should define a Release pipeline. This pipeline would perform the following steps:
+    - Create the Linux host VM that would execute the web service deployment script.
   
-The outputs of this pipeline would be:
-- A web service running in either Azure Container Instance or Azure Kubernetes Service.
+    The outputs of this pipeline would be:
+    - A web service running in either Azure Container Instance or Azure Kubernetes Service.
 
 6.  How would Trey modify the aforementioned deployment pipeline to enforce that a manual sign-off is performed before the web service could be deployed into the production environment?
 
-The release pipeline could begin with a pre-deployment approval configured at the entry point of a stage. An approval would need to be provided within the timeout specified or the deployment would be rejected. A notification, such as an email, can be sent to the approver defined for the approval step. Approvers can submit their approval using the Release summary page.
+    The release pipeline could begin with a pre-deployment approval configured at the entry point of a stage. An approval would need to be provided within the timeout specified or the deployment would be rejected. A notification, such as an email, can be sent to the approver defined for the approval step. Approvers can submit their approval using the Release summary page.
 
 7.  How could Trey configure their Azure Pipelines so as to avoid hardcoding credentials to access Azure resources?
 
-They could create a Service Connection that would allow the Azure Pipeline to access a targeted Azure Subscription or a specific resource group within that Subscription.
+    They could create a Service Connection that would allow the Azure Pipeline to access a targeted Azure Subscription or a specific resource group within that Subscription.
 
 *Monitoring in Production*
 
 1.  How would you recommend Trey collect diagnostics of the scoring web service in production?
 
-They should enable Application Insights integration. They can do this either in code or by using the workspace via the Azure Portal. In code, they accomplish this by using Azure Machine Learning SDK to retrieve a reference to the deployed service and then run `web_service.update(enable_app_insights=True)`. In the Azure Portal, they would navigate to their workspace, select Deployments, select their web service, and then select Edit. Under the Advance Settings, they need only check `Enable AppInsights diagnostics`. 
+    They should enable Application Insights integration. They can do this either in code or by using the workspace via the Azure Portal. In code, they accomplish this by using Azure Machine Learning SDK to retrieve a reference to the deployed service and then run `web_service.update(enable_app_insights=True)`. In the Azure Portal, they would navigate to their workspace, select Deployments, select their web service, and then select Edit. Under the Advance Settings, they need only check `Enable AppInsights diagnostics`. 
 
 2.  How can Trey collect the data input to the scoring web service and the outputs that result, such that they could monitor how the model is performing in production?
 
-They would need to make a modification to their scoring script to include a reference to the `ModelDataCollector`. Then they would create one instance of the ModelDataCollector to capture the input values and another to capture the output values within the `init` method of the scorings script. They would use the `collect` method of each collector object in the `run` method to capture the desired data. 
+    They would need to make a modification to their scoring script to include a reference to the `ModelDataCollector`. Then they would create one instance of the ModelDataCollector to capture the input values and another to capture the output values within the `init` method of the scorings script. They would use the `collect` method of each collector object in the `run` method to capture the desired data. 
 
-Additionally, they would need to update the web service deployment configuration. They can do this in code by updating their configuration object that is used during deployment, such as `aks_config = AksWebservice.deploy_configuration(collect_model_data=True)`. Alternately, in the Azure Portal, they would navigate to their workspace, select Deployments, select their web service, and then select Edit. Under the Advance Settings, they need only check `Enable Model data collection`.  
-
+    Additionally, they would need to update the web service deployment configuration. They can do this in code by updating their configuration object that is used during deployment, such as `aks_config = AksWebservice.deploy_configuration(collect_model_data=True)`. Alternately, in the Azure Portal, they would navigate to their workspace, select Deployments, select their web service, and then select Edit. Under the Advance Settings, they need only check `Enable Model data collection`.  
 
 ## Checklist of preferred objection handling
 
 1.  We are not clear about the benefits that using ONNX might bring to our current scenario and future scenario.
 
-ONNX provides two potential benefits to Trey's scenario. First, ONNX provides a common model format that can be run within a wide range of environments, without needing the libraries that were used to create the model. For example, if a model is created with Keras, they would need neither Keras nor TensorFlow to use the model for scoring. They would only need the ONNX Runtime. This enables the ONNX model to be used in web services, in .NET applications, on IoT devices and on mobile devices without additional effort. Second, because ONNX effectively re-compiles a model when converting to the ONNX format, it may provide some optimizations that improve the scoring performance. In some tests, improvements of 2x on average in the time taken to inference were experienced. 
+    ONNX provides two potential benefits to Trey's scenario. First, ONNX provides a common model format that can be run within a wide range of environments, without needing the libraries that were used to create the model. For example, if a model is created with Keras, they would need neither Keras nor TensorFlow to use the model for scoring. They would only need the ONNX Runtime. This enables the ONNX model to be used in web services, in .NET applications, on IoT devices and on mobile devices without additional effort. Second, because ONNX effectively re-compiles a model when converting to the ONNX format, it may provide some optimizations that improve the scoring performance. In some tests, improvements of 2x on average in the time taken to inference were experienced. 
 
 2.  It seems like data scientists deploy their models as web services from their own python scripts, where as our developers are accustomed to using Azure DevOps to deploy their web services. Can we really have one tool that provides us build and deployment pipelines irrespective of whether we are deploying a model or web application code?
 
-Yes. Both of these scenarios are supported by Azure DevOps and Azure Pipelines. 
+    Yes. Both of these scenarios are supported by Azure DevOps and Azure Pipelines. 
 
 3.  Obviously, we can't just have new models automatically deployed into production. What kind of safeguards can we put in place?
 
-You can create release pipelines that include pre-approvals that require a person to approve a release before it is deployed into production.
+    You can create release pipelines that include pre-approvals that require a person to approve a release before it is deployed into production.
 
 
 ## Customer quote (to be read back to the attendees at the end)
