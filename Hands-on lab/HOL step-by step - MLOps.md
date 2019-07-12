@@ -397,7 +397,7 @@ Duration: 20 minutes
     
 1. Select **Add a task to Agent job**.
 
-    ![Provide Working Directory](media/36_1.png)
+    ![Add a task to Agent job is selected.](media/36_1.png)
     
 2. Search for `Azure CLI`, and select **Add**
 
