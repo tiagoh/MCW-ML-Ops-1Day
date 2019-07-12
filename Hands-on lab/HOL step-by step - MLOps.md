@@ -346,7 +346,6 @@ Duration: 20 minutes
     d. Name: `aks_region` Value: `eastus`
 
     >**Note**:
-
     >- Keep the scope for the variables to `Deploy & Test` stage.
     >- The name of the Azure region should be the same one that was used to create Azure Machine Learning workspace earlier on.
     
