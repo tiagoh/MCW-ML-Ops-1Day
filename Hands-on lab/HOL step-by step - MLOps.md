@@ -201,7 +201,7 @@ Duration: 20 minutes
 
 2. Select **Edit** and update the following variables: `resourcegroup`, and `workspace`. If you are using your own Azure subscription, please provide names to use. If an environment is provided to you be sure to replace XXXXX in the values below with your unique identifier.
 
-    ![Edit build YAML file and provde your resource group and workspace information.](media/05.png 'Edit Build YAML file')
+    ![Edit build YAML file and provide your resource group and workspace information.](media/05.png 'Edit Build YAML file')
 
 3. Select **Commit** to save your changes.
 
@@ -260,7 +260,7 @@ Duration: 25 minutes
     
     d. Publish the build artifacts. The `snapshot of the repository`, `config.json`, and `eval_info.json` files are published as build artifacts and thus can be made available for the release pipeline.
 
-    ![Reivew the build pipeline YAML file.](media/13.png 'Build pipeline YAML')
+    ![Review the build pipeline YAML file.](media/13.png 'Build pipeline YAML')
 
 ### Task 2: Run the Build Pipeline
 
@@ -305,7 +305,7 @@ Duration: 20 minutes
 
 1. Return to Azure DevOps and navigate to **Pipelines, Releases** and select **New pipeline**.
 
-    ![To create new Release Pipeline navigate to Pipelines, Releases and seclect New pipeline.](media/19.png 'New Release Pipeline')
+    ![To create new Release Pipeline navigate to Pipelines, Releases and select New pipeline.](media/19.png 'New Release Pipeline')
 
 2. Select **Empty job**.
 
