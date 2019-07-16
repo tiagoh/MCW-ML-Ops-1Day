@@ -98,7 +98,7 @@ At a high level, here are the setup tasks you will need to perform to prepare yo
 
 2. Start your Notebook server on **Free Compute** by selecting the **Play** icon in the toolbar as shown:
 
-   ![Slect Play icon to Start Notebook Server on Free Compute](media/prepare-02.png 'Start Notebook Server')
+   ![Select Play icon to Start Notebook Server on Free Compute](media/prepare-02.png 'Start Notebook Server')
 
 3. This will open the **Jupyter Notebooks** interface.
 
