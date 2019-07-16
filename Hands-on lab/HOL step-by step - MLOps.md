@@ -93,7 +93,7 @@ They want to ensure the overall process they create enables them to update both 
 
 ## Solution architecture
 
-![The lab solution architecture as described by the text that follows.](media/architecture-overview.png)
+![The lab solution architecture as described by the text that follows.](media/architecture-overview.png, 'Solution Architecture')
 
 The overall approach used in this lab is to orchestrate continuous integration and continuous delivery Azure Pipelines from Azure DevOps. These pipelines are triggered by changes to artifacts that describe a machine learning pipeline, that is created with the Azure Machine Learning SDK. In the lab, you make a change to the model training script that executes the Azure Pipelines Build Pipeline, which trains the model and creates the container image. Then this triggers an Azure Pipelines Release pipeline that deploys the model as a web service to AKS, by using the Docker image that was created in the Build pipeline. Once in production, the scoring web service is monitored using a combination of Application Insights and Azure Storage.
 
@@ -142,13 +142,13 @@ In this exercise, you explore the approaches you can take to managing the model 
 
 3. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
 
-    ![Review registered model in Azure Portal.](media/60.png)
+    ![Review registered model in Azure Portal.](media/60.png 'Registered Model: compliance-classifier')
     
 ### Task 2: Register Model from Azure Portal
 
 1. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section and select **Add Model**.
 
-  ![Add Model in Azure Portal.](media/61.png)
+  ![Register Model from Azure Portal by selecting Add Model in Models section.](media/61.png 'Add Model in Azure Portal')
   
 2. Provide the following input to the `Register a Model page`, and then select **Create**.
 
@@ -158,11 +158,11 @@ In this exercise, you explore the approaches you can take to managing the model 
    
    c. Select the `model.h5` file from your local disk.
 
-   ![Register a Model in Azure Portal.](media/62.png)
+   ![Register a Model in Azure Portal by providing the model file from your local computer.](media/62.png 'Register a Model Dialog')
    
 3. Navigate to your **Resource Group, Workspace, Models** section, and observe the **version 2** of the registered model: `compliance-classifier`.
 
-  ![Registered version 2 Model in Azure Portal.](media/63.png)
+  ![Review the new registered model compliance-classifier version 2 in Azure Portal.](media/63.png 'Registered Model: compliance-classifier version 2')
 
 
 ## Exercise 3: Setup New Project in Azure DevOps
@@ -175,11 +175,11 @@ Duration: 20 minutes
 
 2. Select **Create project**.
 
-    ![Create new project in Azure DevOPs.](media/01.png)
+    ![Create new project in Azure DevOPs.](media/01.png 'Create project')
 
 3. Provide Project Name: `mlops-quickstart` and select **Create**.
 
-    ![Provide Project Name.](media/02.png)
+    ![Provide Project Name and slect Create.](media/02.png 'Create New Project Dialog')
 
 ### Task 2: Import Quickstart code from a GitHub Repo
 
@@ -189,11 +189,11 @@ Duration: 20 minutes
    
    b. Select **Import** from the content section.
    
-      ![Import Quickstart code from a GitHub Repo.](media/03.png)
+      ![Import Quickstart code from a GitHub Repo.](media/03.png 'Azure DevOps Repos')
    
 2. Provide the following GitHub URL: `https://github.com/solliancenet/mcw-mlops-starter` and select **Import**. This should import the code required for the quickstart.
 
-    ![Provide the GitHub URL.](media/04.png)
+    ![Provide the GitHub URL to import the source code in the dialog.](media/04.png 'Import a Git repository dialog')
 
 ### Task 3: Update the build YAML file
 
@@ -201,21 +201,21 @@ Duration: 20 minutes
 
 2. Select **Edit** and update the following variables: `resourcegroup`, and `workspace`. If you are using your own Azure subscription, please provide names to use. If an environment is provided to you be sure to replace XXXXX in the values below with your unique identifier.
 
-    ![Open build YAML file.](media/05.png)
+    ![Edit build YAML file and provde your resource group and workspace information.](media/05.png 'Edit Build YAML file')
 
 3. Select **Commit** to save your changes.
 
-    ![Save your changes to YAML file.](media/06.png)
+    ![Commit your changes to the build YAML file.](media/06.png 'Commit Build YAML file')
   
 ### Task 4: Create new Service Connection
 
 1. From the left navigation select **Project settings** and then select **Service connections**.
 
-    ![Open Service connections.](media/07.png)
+    ![Navigate to Project Settings, Service connections section.](media/07.png 'Service Connections')
 
 2. Select **New service connection** and then select **Azure Resource Manager**.
 
-    ![Open Azure Resource Manager.](media/08.png)
+    ![Select New Service Connection, Azure Resource Manager.](media/08.png 'Azure Resource Manager')
 
 3. Provide the following information in the `Add an Azure Resource Manager service connection` dialog box and then select **Ok**:
  
@@ -227,7 +227,7 @@ Duration: 20 minutes
    
    c. Resource Group: This value should match the value you provided in the `azure-pipelines.yml` file.
    
-    ![Add an Azure Resource Manager service connection.](media/09.png)
+    ![Provide connection name, and Azure Resource Group and then select Ok.](media/09.png 'Add an Azure Resource Manager service connection dialog')
 
 
 ## Exercise 4: Setup and Run the Build Pipeline
@@ -238,15 +238,15 @@ Duration: 25 minutes
 
 1. From left navigation select **Pipelines, Builds** and then select **New pipeline**.
 
-    ![Setup Build Pipeline.](media/10.png)
+    ![Navigate to Pipelines, Builds, and then select New pipeline](media/10.png 'New Build Pipeline')
     
 2. Select **Azure Repos Git** as your code repository.
 
-    ![Select your code repository.](media/11.png)
+    ![Select your code repository source for your new build pipeline.](media/11.png 'Repository Source')
 
 3. Select **mlops-quickstart** as your repository.
 
-    ![Select mlops-quickstart as your repository.](media/12.png)
+    ![Select mlops-quickstart as your repository.](media/12.png 'Select Repository')
 
 4. Review the YAML file.
 
@@ -260,41 +260,41 @@ Duration: 25 minutes
     
     d. Publish the build artifacts. The `snapshot of the repository`, `config.json`, and `eval_info.json` files are published as build artifacts and thus can be made available for the release pipeline.
 
-    ![Reivew the YAML file.](media/13.png)
+    ![Reivew the build pipeline YAML file.](media/13.png 'Build pipeline YAML')
 
 ### Task 2: Run the Build Pipeline
 
 1. Select **Run** to start running your build pipeline.
 
-    ![Start your build pipeline.](media/14.png)
+    ![Start the run for your build pipeline.](media/14.png 'Run Build Pipeline')
 
 2. Monitor the build run. The build pipeline, for the first run, will take around 15-20 minutes to run.
 
-    ![Monitor your build pipeline.](media/15.png)
+    ![Monitor your build pipeline. It will take around 15 to 20 minutes to run.](media/15.png 'Monitor Build Pipeline')
 
 ### Task 3: Review Build Artifacts
 
 1. The build will publish an artifact named `devops-for-ai`. Select **Artifacts, devops-for-ai** to review the artifact contents.
 
-    ![Select Artifacts, devops-for-ai to review the artifact contents.](media/16.png)
+    ![Select Artifacts, devops-for-ai to review the artifact contents.](media/16.png 'Build Artifacts')
 
 2. Select **outputs, eval_info.json** and then select **Download**. The `eval_info.json` is the output from the *model evaluation* step and the information from the evaluation step will be later used in the release pipeline to deploy the model. Select **Close** to close the dialog.
 
-    ![Download output from the model evaluation step.](media/17.png)
+    ![Download output from the model evaluation step.](media/17.png 'Download JSON file')
 
 3. Open the `eval_info.json` in a json viewer or a text editor and observe the information. The json output contains information such as if the model passed the evaluation step (`deploy_model`: *true or false*), and the name and id of the created image (`image_name` and `image_id`) to deploy.
 
-    ![Review information the eval_info json file.](media/18.png)
+    ![Review information in the eval_info json file.](media/18.png 'Eval Info JSON File')
 
 ### Task 4: Review Build Outputs
 
 1. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section, and observe the registered model: `compliance-classifier`.
 
-    ![Review registered model in Azure Portal.](media/53.png)
+    ![Review registered model in Azure Portal.](media/53.png 'Registered Models in Azure Portal')
 
 2. Open your **Resource Group, Workspace, Images** section and observe the deployment image created during the build pipeline: `compliance-classifier-image`.
 
-    ![Review deployment image in Azure Portal.](media/54.png)
+    ![Review deployment image in Azure Portal.](media/54.png 'Images in Azure Portal')
     
     
 ## Exercise 5: Setup the Release Pipeline
