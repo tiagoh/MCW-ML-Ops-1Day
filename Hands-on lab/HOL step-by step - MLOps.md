@@ -305,35 +305,35 @@ Duration: 20 minutes
 
 1. Return to Azure DevOps and navigate to **Pipelines, Releases** and select **New pipeline**.
 
-    ![Create new Release Pipeline.](media/19.png)
+    ![To create new Release Pipeline navigate to Pipelines, Releases and seclect New pipeline.](media/19.png 'New Release Pipeline')
 
 2. Select **Empty job**.
 
-    ![Select empty job.](media/20.png)
+    ![Select empty job to start building the release pipeline.](media/20.png 'Select a template: Empty job')
 
 3. Provide Stage name: `Deploy & Test` and close the dialog.
 
-    ![Provide stage name for the release stage.](media/21.png)
+    ![Provide stage name for the release stage.](media/21.png 'Deploy & Test Stage')
 
 ### Task 2: Add Build Artifact
 
 1. Select **Add an artifact**.
 
-    ![Add an artifact](media/22.png)
+    ![Add a new artifact to the release pipeline](media/22.png 'Add an artifact')
 
 2. Select Source type: `Build`, Source (build pipeline): `mlops-quickstart`. *Observe the note that shows that the mlops-quickstart publishes the build artifact named devops-for-ai*. Finally, select **Add**.
 
-    ![Provide information to add the build artifact.](media/23.png)
+    ![Provide information to add the build artifact.](media/23.png 'Add a build artifact')
     
 ### Task 3: Add Variables to Deploy & Test stage
 
 1. Open **View stage tasks** link.
 
-    ![Open view stage tasks link.](media/24.png)
+    ![Open view stage tasks link.](media/24.png 'View Stage Tasks')
 
 2. Open the **Variables** tab.
 
-    ![Opened variables tab.](media/25.png)
+    ![Open variables tab.](media/25.png 'Release Pipeline Variables')
 
 3. Add four Pipeline variables as name - value pairs and then select **Save**:
 
@@ -349,59 +349,59 @@ Duration: 20 minutes
     >- Keep the scope for the variables to `Deploy & Test` stage.
     >- The name of the Azure region should be the same one that was used to create Azure Machine Learning workspace earlier on.
     
-      ![Add Pipeline variables.](media/26.png)
+      ![Add four pipeline variables as name value pairs and save.](media/26.png 'Add Pipeline Variables')
       
 ### Task 4: Setup Agent Pool for Deploy & Test stage
         
 1. Open the **Tasks** tab.
 
-    ![Open view stage tasks link.](media/27.png)
+    ![Open view stage tasks link.](media/27.png 'Pipeline Tasks')
     
 2. Select **Agent job** and change **Agent pool** to `Hosted Ubuntu 1604`.
 
-    ![Change Agent pool to be Hosted Ubuntu 1604.](media/28.png)
+    ![Change Agent pool to be Hosted Ubuntu 1604.](media/28.png 'Agent Job Setup')
     
 ### Task 5: Add Use Python Version task
 
 1. Select **Add a task to Agent job**, search for `Use Python Version`, and select **Add**.
 
-    ![Add Use Python Version task to Agent job.](media/29.png)
+    ![Add Use Python Version task to Agent job.](media/29.png 'Add Use Python Version Task')
 
 2. Provide **Display name:** `Use Python 3.6` and **Version spec:** `3.6`.
 
-    ![Provide Display name and Version spec.](media/30.png)
+    ![Provide Display name and Version spec for the Use Python version task.](media/30.png 'Use Python Version Task Dialog')
     
 ### Task 6: Add Install Requirements task
 
 1. Select **Add a task to Agent job**, search for `Bash`, and select **Add**.
     
-    ![Add Use Bash task to Agent job.](media/31.png)
+    ![Add Bash task to Agent job.](media/31.png 'Add Bash Task')
 
 2. Provide **Display name:** `Install Requirements` and select **object browser ...** to provide **Script Path**.
 
-    ![Provide Display name.](media/32.png)
+    ![Provide Display name for the Bash task.](media/32.png 'Bash Task Dialog')
 
 3. Navigate to **Linked artifacts/_mlops-quickstart/devops-for-ai/environment_setup** and select **install_requirements.sh**.
 
-    ![Provide Script Path.](media/33.png)
+    ![Provide Script Path to the Install Requirements bash file.](media/33.png 'Select Path Dialog')
 
 4. Expand **Advanced** and select **object browser ...** to provide **Working Directory**.
 
-    ![Expand advanced section to provide Working Directory.](media/34.png)
+    ![Expand advanced section to provide Working Directory.](media/34.png 'Bash Task - Advanced Section')
     
 5. Navigate to **Linked artifacts/_mlops-quickstart/devops-for-ai** and select **environment_setup**.
 
-    ![Provide Working Directory.](media/35.png)
+    ![Provide path to the Working Directory.](media/35.png 'Select Path Dialog')
     
 ### Task 7: Add Deploy & Test Webservice task
     
 1. Select **Add a task to Agent job**.
 
-    ![Add a task to Agent job is selected.](media/36_1.png)
+    ![Select Add a task to Agent job.](media/36_1.png 'Add a Task to Agent job')
     
 2. Search for `Azure CLI`, and select **Add**
 
-    ![Add Azure CLI task.](media/36_2.png)
+    ![Add Azure CLI task to Agent job.](media/36_2.png 'Azure CLI Task')
 
 3. Provide the following information for the Azure CLI task:
 
@@ -413,11 +413,11 @@ Duration: 20 minutes
     
     d. Inline Script: `python aml_service/deploy.py --service_name $(service_name) --aks_name $(aks_name) --aks_region $(aks_region) --description $(description)`
     
-      ![Setup Azure CLI task.](media/38.png)
+      ![Setup the Azure CLI task using the information above.](media/38.png 'Azure CLI Task Dialog')
 
 4. Expand **Advanced** and provide **Working Directory:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/devops-for-ai`.
 
-    ![Provide Working Directory.](media/39.png)
+    ![Provide Working Directory for the Azure CLI task.](media/39.png 'Azure CLI Task - Working Directory')
     
 
 Please review the code in `aml_service/deploy.py`. This step will read the `eval_info.json` and if the evaluation step recommended to deploy the new trained model, it will deploy the new model to production in an **Azure Kubernetes Service (AKS)** cluster.
@@ -428,7 +428,7 @@ Please review the code in `aml_service/deploy.py`. This step will read the `eval
 
 2. Select **After release**.
 
-    ![Setup Pre-deployment conditions.](media/40.png)
+    ![Setup Pre-deployment conditions for the Deploy & Test stage.](media/40.png 'Pre-deployment Conditions Dialog')
 
 3. Close the dialog.
 
@@ -438,7 +438,7 @@ Please review the code in `aml_service/deploy.py`. This step will read the `eval
 
 2. Enable: **Creates a release every time a new build is available**.
 
-    ![Enable Continuous Deployment Trigger.](media/41.png)
+    ![Enable Continuous Deployment Trigger for the Release pipeline.](media/41.png 'Continuous Deployment Trigger Dialog')
     
 3. Close the dialog
 
@@ -448,11 +448,11 @@ Please review the code in `aml_service/deploy.py`. This step will read the `eval
 
 2. Select: **Save**.
 
-    ![Save the Release Pipeline.](media/42.png)
+    ![Provide name for the release pipeline and select save.](media/42.png 'Save')
 
 3. Select: **Ok**.
 
-    ![Select Ok](media/43.png)
+    ![Select Ok](media/43.png 'Save - Ok')
     
 ## Exercise 6: Test Build and Release Pipelines
 
@@ -468,27 +468,27 @@ Duration: 30 minutes
 
 4. Select **Commit**.
 
-    ![Edit to train.py.](media/44_1.png)
+    ![Make edits to train.py by changing the learning rate. Select Commit after editing.](media/44_1.png 'Edit Train.py')
     
 5. Provide comment: `Improving model performance: changed learning rate.` and select **Commit**.
 
-    ![Edit comment for train.py.](media/45_1.png)
+    ![Provide commit comment for train.py.](media/45_1.png 'Commit - Comment')
     
 ### Task 2: Monitor Build Pipeline
 
 1. Navigate to **Pipelines, Builds**. Observe that the CI build is triggered because of the source code change. 
 
-   ![CI Build Pipeline.](media/46_1.png)
+   ![Navigate to Pipelines, Builds.](media/46_1.png 'Pipelines - Builds')
    
 2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 10-12 minutes. Proceed to the next task when the build pipeline successfully completes.
     
-   ![CI Build Pipeline steps](media/47.png)
+   ![Monitor Build Pipeline. It will take around 10-12 minutes to complete.](media/47.png 'Build Pipeline Steps')
 
 ### Task 3: Monitor Release Pipeline
 
 1. Navigate to **Pipelines, Releases**. Observe that the Release pipeline is automatically trigger upon successful completion of the build pipeline. Select as shown in the figure to view pipeline logs. 
     
-   ![Release pipeline](media/48.png)
+   ![Navigate to Pipelines, Releases and Select as shown in the figure to view pipeline logs](media/48.png 'Pipelines - Releases')
    
 2. The release pipeline will run for about 15 minutes. Proceed to the next task when the release pipeline successfully completes.
 
@@ -496,15 +496,15 @@ Duration: 30 minutes
 
 1. From the pipeline logs view, select **Deploy & Test Webservice** task to view details.
 
-    ![Release pipeline logs](media/50.png)
+    ![Select Deploy & Test Webservice task to view details](media/50.png 'Pipeline Logs')
     
 2. Observe the **Scoring URI** and **API Key** for the deployed webservice. Please note down both the `Scoring URI` and `API Key` for *Exercise 7*.
 
-    ![Scoring URI of the deployed webservice.](media/51.png)
+    ![View Deploy & Test Webservice task logs and note down the Scoring URI of the deployed webservice.](media/51.png 'Deploy & Test Webservice Task Logs')
 
 3. Log in to Azure Portal. Open your **Resource Group, Workspace, Deployments** section, and observe the deployed webservice: **compliance-classifier-service**.
 
-    ![Deployed webservice in Azure Portal.](media/52.png)
+    ![View deployed webservice in Azure Portal.](media/52.png 'Azure Portal - Workspace, Deployments')
 
 
 ## Exercise 7: Testing the deployed solution
