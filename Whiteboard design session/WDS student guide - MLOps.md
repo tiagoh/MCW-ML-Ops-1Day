@@ -93,7 +93,7 @@ Finally, Trey would like to ensure that the process they establish is not litter
 
 ### Infographic for common scenarios
 
-![An example machine learning pipeline going from prepare data, to build and train models, to deploy and predict.](images/example-pipeline.png)
+![An example machine learning pipeline going from prepare data, to build and train models, to deploy and predict.](images/example-pipeline.png 'Machine Learning Pipeline')
 
 ## Step 2: Design a proof of concept solution
 
