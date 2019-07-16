@@ -590,7 +590,7 @@ To avoid unexpected charges, it is recommended that you clean up all of your lab
 
 2.  Select **Delete resource group** from the command bar.
 
-    ![Screenshot of the Delete resource group button.](media/image71.png 'Delete Resource Group')
+    ![Screenshot of the Delete resource group button.](media/image71.png 'Delete resource group button')
 
 3.  In the confirmation dialog that appears, enter the name of the resource group and select **Delete**.
 
