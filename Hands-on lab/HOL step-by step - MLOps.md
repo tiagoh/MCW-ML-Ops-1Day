@@ -319,7 +319,7 @@ Duration: 20 minutes
 
 1. Select **Add an artifact**.
 
-    ![Add a new artifact to the release pipeline](media/22.png 'Add an artifact')
+    ![Add a new artifact to the release pipeline.](media/22.png 'Add an artifact')
 
 2. Select Source type: `Build`, Source (build pipeline): `mlops-quickstart`. *Observe the note that shows that the mlops-quickstart publishes the build artifact named devops-for-ai*. Finally, select **Add**.
 
@@ -452,7 +452,7 @@ Please review the code in `aml_service/deploy.py`. This step will read the `eval
 
 3. Select: **Ok**.
 
-    ![Select Ok](media/43.png 'Save - Ok')
+    ![Select Ok.](media/43.png 'Save - Ok')
     
 ## Exercise 6: Test Build and Release Pipelines
 
@@ -488,7 +488,7 @@ Duration: 30 minutes
 
 1. Navigate to **Pipelines, Releases**. Observe that the Release pipeline is automatically trigger upon successful completion of the build pipeline. Select as shown in the figure to view pipeline logs. 
     
-   ![Navigate to Pipelines, Releases and Select as shown in the figure to view pipeline logs](media/48.png 'Pipelines - Releases')
+   ![Navigate to Pipelines, Releases and Select as shown in the figure to view pipeline logs.](media/48.png 'Pipelines - Releases')
    
 2. The release pipeline will run for about 15 minutes. Proceed to the next task when the release pipeline successfully completes.
 
@@ -496,7 +496,7 @@ Duration: 30 minutes
 
 1. From the pipeline logs view, select **Deploy & Test Webservice** task to view details.
 
-    ![Select Deploy & Test Webservice task to view details](media/50.png 'Pipeline Logs')
+    ![Select Deploy & Test Webservice task to view details.](media/50.png 'Pipeline Logs')
     
 2. Observe the **Scoring URI** and **API Key** for the deployed webservice. Please note down both the `Scoring URI` and `API Key` for *Exercise 7*.
 
