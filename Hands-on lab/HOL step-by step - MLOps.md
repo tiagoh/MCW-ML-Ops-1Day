@@ -534,6 +534,8 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
 2. Follow the instructions within the notebook to complete the task. When finished, your deployed model has now both [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) integration and data collection activated.
 
+3. Note that if there are errors when you make calls against the deployed web service after your enable app insights (last cell in the `Model Telemetry` notebook). Please wait for 5 minutes and rerun the cell to make few calls against the deployed web service.
+
 ### Task 2: Check Application Insights telemetry
 
 1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
@@ -555,6 +557,8 @@ In this exercise you learn how to monitor the performance of a deployed model.
     ![In Application Insights create requests query.](media/telemetry-03.png 'Create Requests Query')
 
 7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute, call again your model, and click **Run** to re-execute the Application Insights query.
+
+*Note that if you do not see telemetry information after selecting **Run** to re-execute the Application insights query. Please rerun the last cell in the `Model Telemetry` notebook few more times to generate more data. Then select **Run** on this page to re-execute the Application insights query.*
 
     ![In Application Insights observe requests query results.](media/telemetry-04.png 'Requests Query Results')
 
