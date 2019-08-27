@@ -357,9 +357,9 @@ Duration: 20 minutes
 
     ![Open view stage tasks link.](media/27.png 'Pipeline Tasks')
     
-2. Select **Agent job** and change **Agent pool** to `Hosted Ubuntu 1604`.
+2. Select **Agent job** and change **Agent pool** to `Azure Pipelines` and change **Agent Specification** to `ubuntu-16.04`.
 
-    ![Change Agent pool to be Hosted Ubuntu 1604.](media/28.png 'Agent Job Setup')
+    ![Change Agent pool to be Hosted Ubuntu 1604.](media/28_2.png 'Agent Job Setup')
     
 ### Task 5: Add Use Python Version task
 
