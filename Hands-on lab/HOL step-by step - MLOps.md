@@ -464,13 +464,15 @@ Duration: 30 minutes
 
 2. **Edit** `train.py`.
 
-3. Change the **learning rate (lr)** for the optimizer from **0.1** to **0.01**.
+3. Change the **learning rate (lr)** for the optimizer from **0.1** to **0.001**.
 
-4. Select **Commit**.
+4. Change the number of training **epochs** from **1** to **5**.
+
+5. Select **Commit**.
 
     ![Make edits to train.py by changing the learning rate. Select Commit after editing.](media/44_1.png 'Edit Train.py')
     
-5. Provide comment: `Improving model performance: changed learning rate.` and select **Commit**.
+6. Provide comment: `Improving model performance: changed learning rate.` and select **Commit**.
 
     ![Provide commit comment for train.py.](media/45_1.png 'Commit - Comment')
     
@@ -480,9 +482,9 @@ Duration: 30 minutes
 
    ![Navigate to Pipelines, Builds.](media/46_1.png 'Pipelines - Builds')
    
-2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 10-12 minutes. Proceed to the next task when the build pipeline successfully completes.
+2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 16-18 minutes. Proceed to the next task when the build pipeline successfully completes.
     
-   ![Monitor Build Pipeline. It will take around 10-12 minutes to complete.](media/47.png 'Build Pipeline Steps')
+   ![Monitor Build Pipeline. It will take around 16-18 minutes to complete.](media/47.png 'Build Pipeline Steps')
 
 ### Task 3: Monitor Release Pipeline
 
@@ -534,7 +536,7 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
 2. Follow the instructions within the notebook to complete the task. When finished, your deployed model has now both [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) integration and data collection activated.
 
-3. Note that if there are errors when you make calls against the deployed web service after your enable app insights (last cell in the `Model Telemetry` notebook). Please wait for 5 minutes and rerun the cell to make few calls against the deployed web service.
+3. Note that if there are errors (for example, `Too many requests for service compliance-classifier-service (overloaded)`) when you make calls against the deployed web service after your enable app insights (last cell in the `Model Telemetry` notebook). Please wait for 5 minutes and rerun the cell to make few calls against the deployed web service.
 
 ### Task 2: Check Application Insights telemetry
 
