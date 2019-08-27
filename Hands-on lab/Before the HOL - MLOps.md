@@ -86,7 +86,7 @@ At a high level, here are the setup tasks you will need to perform to prepare yo
 
 3. Select **Upload GitHub Repo**.
 
-4. In the Upload GitHub Repository dialog, for the GitHub repository provide ```https://github.com/microsoft/MCW-ML-Ops```, and select **Import**. Allow the import a few moments to complete, the dialog will dismiss once the import has completed.
+4. In the Upload GitHub Repository dialog, for the GitHub repository provide ```microsoft/MCW-ML-Ops```, and select **Import**. Allow the import a few moments to complete, the dialog will dismiss once the import has completed.
 
    ![Upload GitHub Repository Dialog where you enter repository URL and select import.](media/prepare-01.png 'Upload GitHub Repository Dialog')
 
