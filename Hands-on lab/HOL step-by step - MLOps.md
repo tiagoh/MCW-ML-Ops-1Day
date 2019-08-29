@@ -93,7 +93,7 @@ They want to ensure the overall process they create enables them to update both 
 
 ## Solution architecture
 
-![The lab solution architecture as described by the text that follows.](media/architecture-overview.png, 'Solution Architecture')
+![The lab solution architecture as described by the text that follows.](media/architecture-overview.png 'Solution Architecture')
 
 The overall approach used in this lab is to orchestrate continuous integration and continuous delivery Azure Pipelines from Azure DevOps. These pipelines are triggered by changes to artifacts that describe a machine learning pipeline, that is created with the Azure Machine Learning SDK. In the lab, you make a change to the model training script that executes the Azure Pipelines Build Pipeline, which trains the model and creates the container image. Then this triggers an Azure Pipelines Release pipeline that deploys the model as a web service to AKS, by using the Docker image that was created in the Build pipeline. Once in production, the scoring web service is monitored using a combination of Application Insights and Azure Storage.
 
@@ -357,9 +357,9 @@ Duration: 20 minutes
 
     ![Open view stage tasks link.](media/27.png 'Pipeline Tasks')
     
-2. Select **Agent job** and change **Agent pool** to `Hosted Ubuntu 1604`.
+2. Select **Agent job** and change **Agent pool** to `Azure Pipelines` and change **Agent Specification** to `ubuntu-16.04`.
 
-    ![Change Agent pool to be Hosted Ubuntu 1604.](media/28.png 'Agent Job Setup')
+    ![Change Agent pool to be Hosted Ubuntu 1604.](media/28_2.png 'Agent Job Setup')
     
 ### Task 5: Add Use Python Version task
 
@@ -464,13 +464,15 @@ Duration: 30 minutes
 
 2. **Edit** `train.py`.
 
-3. Change the **learning rate (lr)** for the optimizer from **0.1** to **0.01**.
+3. Change the **learning rate (lr)** for the optimizer from **0.1** to **0.001**.
 
-4. Select **Commit**.
+4. Change the number of training **epochs** from **1** to **5**.
+
+5. Select **Commit**.
 
     ![Make edits to train.py by changing the learning rate. Select Commit after editing.](media/44_1.png 'Edit Train.py')
     
-5. Provide comment: `Improving model performance: changed learning rate.` and select **Commit**.
+6. Provide comment: `Improving model performance: changed learning rate.` and select **Commit**.
 
     ![Provide commit comment for train.py.](media/45_1.png 'Commit - Comment')
     
@@ -480,9 +482,9 @@ Duration: 30 minutes
 
    ![Navigate to Pipelines, Builds.](media/46_1.png 'Pipelines - Builds')
    
-2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 10-12 minutes. Proceed to the next task when the build pipeline successfully completes.
+2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 16-18 minutes. Proceed to the next task when the build pipeline successfully completes.
     
-   ![Monitor Build Pipeline. It will take around 10-12 minutes to complete.](media/47.png 'Build Pipeline Steps')
+   ![Monitor Build Pipeline. It will take around 16-18 minutes to complete.](media/47.png 'Build Pipeline Steps')
 
 ### Task 3: Monitor Release Pipeline
 
@@ -534,6 +536,8 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
 2. Follow the instructions within the notebook to complete the task. When finished, your deployed model has now both [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) integration and data collection activated.
 
+3. Note that if there are errors (for example, `Too many requests for service compliance-classifier-service (overloaded)`) when you make calls against the deployed web service after your enable app insights (last cell in the `Model Telemetry` notebook). Please wait for 5 minutes and rerun the cell to make few calls against the deployed web service.
+
 ### Task 2: Check Application Insights telemetry
 
 1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
@@ -554,9 +558,11 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
     ![In Application Insights create requests query.](media/telemetry-03.png 'Create Requests Query')
 
-7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute, call again your model, and click **Run** to re-execute the Application Insights query.
+7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute, call again your model, and click **Run** to re-execute the Application Insights query. 
 
-    ![In Application Insights observe requests query results.](media/telemetry-04.png 'Requests Query Results')
+   ![In Application Insights observe requests query results.](media/telemetry-04.png 'Requests Query Results')
+
+*Note that if you do not see telemetry information after selecting **Run** to re-execute the Application insights query. Please rerun the last cell in the `Model Telemetry` notebook few more times to generate more data. Then select **Run** on this page to re-execute the Application insights query.*
 
 ### Task 3: Check the data collected
 
