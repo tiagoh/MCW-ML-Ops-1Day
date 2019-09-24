@@ -4,6 +4,8 @@ Trey Research Inc. delivers innovative solutions for manufacturers. They special
 
 For this first proof of concept (PoC), Trey Research Inc. are looking to leverage Deep Learning technologies with Natural Language Processing (NLP) techniques to scan through vehicle component descriptions to find compliance issues with new regulations. The component descriptions are managed via a web application, and the web application takes the description and labels the component as compliant or non-compliant using the trained model. As part of this PoC, they want to ensure the overall process they create enables them to update both the underlying machine learning model and the web app in one, unified pipeline. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues.
 
+June 2019
+
 ## Target audience
 -   Data Scientists
 -   App Developers
@@ -44,3 +46,16 @@ At the end of this hands-on lab, you will be better able to implement end-to-end
 ## Related references
 
 - [MCW](https://github.com/Microsoft/MCW)
+
+## Help & Support
+
+We welcome feedback and comments from Microsoft SMEs & learning partners who deliver MCWs.  
+
+***Having trouble?***
+- First, verify you have followed all written lab instructions (including the Before the Hands-on lab document).
+- Next, submit an issue with a detailed description of the problem.
+- Please do not submit pull requests. Our authors will review open issues and submit pull requests, as needed, for approval.  
+
+If you are planning to present a workshop, *review and test the materials early*! We recommend at least two weeks prior.
+
+### Please allow 5 - 10 business days for review and resolution of issues.
