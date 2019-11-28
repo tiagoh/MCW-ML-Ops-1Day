@@ -36,7 +36,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Create the classification model using a notebook](#task-1-create-the-classification-model-using-a-notebook)
   - [Exercise 2: Registering the model](#exercise-2-registering-the-model)
     - [Task 1: Register Model using Azure Machine Learning Python SDK](#task-1-register-model-using-azure-machine-learning-python-sdk)
-    - [Task 2: Register Model from Azure Portal](#task-2-register-model-from-azure-portal)
+    - [Task 2: Register Model from Azure Machine Learning studio](#task-2-register-model-from-azure-machine-learning-studio)
   - [Exercise 3: Setup New Project in Azure DevOps](#exercise-3-setup-new-project-in-azure-devops)
     - [Task 1: Create New Project](#task-1-create-new-project)
     - [Task 2: Import Quickstart code from a GitHub Repo](#task-2-import-quickstart-code-from-a-github-repo)
@@ -145,7 +145,7 @@ In this exercise, you explore the approaches you can take to managing the model 
 
     ![Review registered model in Azure Portal.](media/model-registry-01.png 'Registered Model: compliance-classifier')
 
-### Task 2: Register Model from Azure Portal
+### Task 2: Register Model from Azure Machine Learning studio
 
 1. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you have created in the previous task. Open your **Models** section and select **Register model**.
 
