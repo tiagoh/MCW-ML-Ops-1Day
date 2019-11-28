@@ -130,7 +130,10 @@ In this exercise, you create a model for classifying component text as compliant
 
 Duration: 15 minutes
 
-In this exercise, you explore the approaches you can take to managing the model versions, their association with Experiment Runs, and how you can retrieve the models both programmatically and via the Azure Portal.
+In this exercise, you explore the approaches you can take to managing the model versions, their association with Experiment Runs, and how you can retrieve the models both programmatically and via the [Azure Machine Learning studio](https://ml.azure.com).
+
+>**Note:**
+>The new [Azure Machine Learning studio](https://ml.azure.com) provides a new immersive experience for managing the end-to-end machine learning lifecyle. You can use it either by logging in directly to it or by selecting the ```Launch the new Azure Machine Learning studio``` option in the ```Overview``` section of your Azure Machine Learning workspace.
 
 ### Task 1: Register Model using Azure Machine Learning Python SDK
 
@@ -138,29 +141,33 @@ In this exercise, you explore the approaches you can take to managing the model 
 
 2. Follow the instructions within the notebook to complete the lab.
 
-3. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
+3. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook. Open your **Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
 
-    ![Review registered model in Azure Portal.](media/60.png 'Registered Model: compliance-classifier'
+    ![Review registered model in Azure Portal.](media/model-registry-01.png 'Registered Model: compliance-classifier')
 
 ### Task 2: Register Model from Azure Portal
 
-1. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section and select **Add Model**.
+1. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you have created in the previous task. Open your **Models** section and select **Register model**.
 
-    ![Register Model from Azure Portal by selecting Add Model in Models section.](media/61.png 'Add Model in Azure Portal')
+    ![Register Model in Azure Machine Learning studio by selecting REgister model in Models section.](media/model-registry-02.png 'Register Model in Azure Machine Learning studio')
   
-2. Provide the following input to the `Register a Model page`, and then select **Create**.
+2. Provide the following input to the `Register a model` dialog, and then select **Register**.
 
    a. Name: `compliance-classifier`
 
    b. Description: `Deep learning model to classify the descriptions of car components as compliant or non-compliant.`
 
-   c. Select the `model.h5` file from your local disk.
+   c. Model Framework: `TFKeras`
 
-    ![Register a Model in Azure Portal by providing the model file from your local computer.](media/62.png 'Register a Model Dialog')
+   d. Model Framework Version: `2.0`
 
-3. Navigate to your **Resource Group, Workspace, Models** section, and observe the **version 2** of the registered model: `compliance-classifier`.
+   e. Model file: Select the `model.h5` file from your local disk.
 
-    ![Review the new registered model compliance-classifier version 2 in Azure Portal.](media/63.png 'Registered Model: compliance-classifier version 2')
+    ![Register a Model in Azure Machine Learning studio by providing the model file from your local computer.](media/model-registry-03.png 'Register a model Dialog')
+
+3. Navigate to your **Models** section, and observe the **version 2** of the registered model: `compliance-classifier`.
+
+    ![Review the new registered model compliance-classifier version 2 in Azure Machine Learning studio.](media/model-registry-04.png 'Registered Model: compliance-classifier version 2')
 
 ## Exercise 3: Setup New Project in Azure DevOps
 
