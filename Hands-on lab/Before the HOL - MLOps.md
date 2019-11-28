@@ -9,9 +9,8 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-June 2019
+November 2019
 </div>
-
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
@@ -27,28 +26,28 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- TOC -->
 
-- [MLOps before the hands-on lab setup guide](#insert-workshop-name-here-before-the-hands-on-lab-setup-guide)
-  - [Requirements](#Requirements)
-  - [Before the hands-on lab](#Before-the-hands-on-lab)
-    - [Task 1: Setup an Azure Notebooks account](#Task-1-Setup-an-Azure-Notebooks-account)
-    - [Task 2: Setup an Azure Notebooks project](#Task-2-Setup-an-Azure-Notebooks-project)
-    - [Task 3: Start the Notebook server](#Task-2-Start-the-Notebook-server)
+- [MLOps before the hands-on lab setup guide](#mlops-before-the-hands-on-lab-setup-guide)
+  - [Requirements](#requirements)
+  - [Before the hands-on lab](#before-the-hands-on-lab)
+    - [Task 1: Setup an Azure Notebooks account](#task-1-setup-an-azure-notebooks-account)
+    - [Task 2: Setup an Azure Notebooks project](#task-2-setup-an-azure-notebooks-project)
+    - [Task 3: Start the Notebook server](#task-3-start-the-notebook-server)
 
 <!-- /TOC -->
 
-# MLOps before the hands-on lab setup guide 
+# MLOps before the hands-on lab setup guide
 
 ## Requirements
 
 1. Azure subscription. You will need a valid and active Azure account to complete the quickstarts. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/).
 
-   - The Microsoft Azure subscription must be pay-as-you-go or MSDN. 
+   - The Microsoft Azure subscription must be pay-as-you-go or MSDN.
 
-   - Trial subscriptions will not work. You will run into issues with Azure resource quota limits. 
+   - Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
 
    - Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
 
-2. Azure DevOps subscription. You will need a valid and active Azure DevOps account to complete the quickstarts. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/en-us/services/devops/). 
+2. Azure DevOps subscription. You will need a valid and active Azure DevOps account to complete the quickstarts. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/en-us/services/devops/).
 
    >**Note**: You will need privileges to create projects on the DevOps account. Also, you need privileges to create Service Principal in the tenet. This translates to `Ensure that the user has 'Owner' or 'User Access Administrator' permissions on the Subscription`.
 
@@ -57,7 +56,6 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 4. Azure Machine Learning service workspace. The workspace is created during Exercise 1 from the hands-on lab.
 
    >**Note**: Make sure you execute successfully all steps related to the Azure Machine Learning service workspace setup in Exercise 1. A correctly set up workspace is needed by all the other exercises.
-
 
 ## Before the hands-on lab
 
@@ -70,7 +68,6 @@ At a high level, here are the setup tasks you will need to perform to prepare yo
 2. Setup an Azure Notebooks Project.
 
 3. Start the Notebook Server.
-
 
 ### Task 1: Setup an Azure Notebooks account
 
@@ -103,5 +100,3 @@ At a high level, here are the setup tasks you will need to perform to prepare yo
 3. This will open the **Jupyter Notebooks** interface.
 
 You should follow all steps provided *before* performing the Hands-on lab.
-
-
