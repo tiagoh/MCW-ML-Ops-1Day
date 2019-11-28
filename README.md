@@ -17,7 +17,7 @@ November 2019
 
 ### Workshop
 
-In this workshop, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations, and manage the classification through their web application. The entire process from model creation, application packaging, model deployment and application deployment needs to occur as one unified repeatable, pipeline. 
+In this workshop, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations, and manage the classification through their web application. The entire process from model creation, application packaging, model deployment and application deployment needs to occur as one unified repeatable, pipeline.
 
 At the end of this workshop, you will be better able to design and implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.
 
@@ -59,4 +59,4 @@ We welcome feedback and comments from Microsoft SMEs & learning partners who del
 
 If you are planning to present a workshop, *review and test the materials early*! We recommend at least two weeks prior.
 
-### Please allow 5 - 10 business days for review and resolution of issues.
+**Please allow 5 - 10 business days for review and resolution of issues.**

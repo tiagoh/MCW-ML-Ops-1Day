@@ -22,7 +22,7 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
-**Contents** 
+**Contents**
 
 <!-- TOC -->
 
@@ -472,7 +472,7 @@ Duration: 30 minutes
 
 ### Task 2: Monitor Build Pipeline
 
-1. Navigate to **Pipelines, Builds**. Observe that the CI build is triggered because of the source code change. 
+1. Navigate to **Pipelines, Builds**. Observe that the CI build is triggered because of the source code change.
 
    ![Navigate to Pipelines, Builds.](media/46_1.png 'Pipelines - Builds')
 
@@ -482,7 +482,7 @@ Duration: 30 minutes
 
 ### Task 3: Monitor Release Pipeline
 
-1. Navigate to **Pipelines, Releases**. Observe that the Release pipeline is automatically trigger upon successful completion of the build pipeline. Select as shown in the figure to view pipeline logs. 
+1. Navigate to **Pipelines, Releases**. Observe that the Release pipeline is automatically trigger upon successful completion of the build pipeline. Select as shown in the figure to view pipeline logs.
 
    ![Navigate to Pipelines, Releases and Select as shown in the figure to view pipeline logs.](media/48.png 'Pipelines - Releases')
 
@@ -544,13 +544,13 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
     ![From Application Insights Dashboard, select Logs to open the Query Editor.](media/telemetry-02.png 'Application Insights - Dashboard')
 
-5. In the left pane, make sure the **Schema** tab is selected. 
+5. In the left pane, make sure the **Schema** tab is selected.
 
-6. Hover over **requests** and click the icon on the right side - "Show sample records from this table". 
+6. Hover over **requests** and click the icon on the right side - "Show sample records from this table".
 
     ![In Application Insights create requests query.](media/telemetry-03.png 'Create Requests Query')
 
-7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute, call again your model, and click **Run** to re-execute the Application Insights query. 
+7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute, call again your model, and click **Run** to re-execute the Application Insights query.
 
    ![In Application Insights observe requests query results.](media/telemetry-04.png 'Requests Query Results')
 
@@ -567,7 +567,7 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
 4. Expand the **BLOB CONTAINERS** section and identify the **modeldata** container. Select **More->Refresh** if you do not see **modeldata** container.
 
-    ![Locate the telemetry blob container in the storage account.](media/telemetry-06.png 'Storage Explorer') 
+    ![Locate the telemetry blob container in the storage account.](media/telemetry-06.png 'Storage Explorer')
 
 5. Identify the CSV files containing the collected data. The path to the output blobs is based on the following structure:
 
