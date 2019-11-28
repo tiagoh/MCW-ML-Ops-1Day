@@ -9,9 +9,8 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-June 2019
+November 2019
 </div>
-
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
@@ -27,57 +26,57 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- TOC -->
 
-- [MLOps hands-on lab step-by-step](#MLOps-hands-on-lab-step-by-step)
-  - [Abstract and learning objectives](#Abstract-and-learning-objectives)
-  - [Overview](#Overview)
-  - [Solution architecture](#Solution-architecture)
-  - [Requirements](#Requirements)
-  - [Before the hands-on lab](#Before-the-hands-on-lab)
-  - [Exercise 1: Creating and evaluating compliance classification models](#Exercise-1-Creating-and-evaluating-compliance-classification-models)
-    - [Task 1: Create the classification model using a notebook](#Task-1-Create-the-classification-model-using-a-notebook)
-  - [Exercise 2: Registering the model](#Exercise-2-Registering-the-model)
-    - [Task 1: Register Model using Azure Machine Learning Python SDK](#Task-1-Register-Model-using-Azure-Machine-Learning-Python-SDK)
-    - [Task 2: Register Model from Azure Portal](#Task-2-Register-Model-from-Azure-Portal)
-  - [Exercise 3: Setup New Project in Azure DevOps](#Exercise-3-Setup-New-Project-in-Azure-DevOps)
-    - [Task 1: Create New Project](#Task-1-Create-New-Project)
-    - [Task 2: Import Quickstart code from a GitHub Repo](#Task-2-Import-Quickstart-code-from-a-Github-Repo)
-    - [Task 3: Update the build YAML file](#Task-3-Update-the-build-YAML-file)
-    - [Task 4: Create new Service Connection](#Task-4-Create-new-Service-Connection)
-  - [Exercise 4: Setup and Run the Build Pipeline](#Exercise-4-Setup-and-Run-the-Build-Pipeline)
-    - [Task 1: Setup Build Pipeline](#Task-1-Setup-Build-Pipeline)
-    - [Task 2: Run the Build Pipeline](#Task-2-Run-the-Build-Pipeline)
-    - [Task 3: Review Build Artifacts](#Task-3-Review-Build-Artifacts)
-    - [Task 4: Review Build Outputs](#Task-4-Review-Build-Outputs)
-  - [Exercise 5: Setup the Release Pipeline](#Exercise-5-Setup-the-Release-Pipeline)
-    - [Task 1: Create an Empty Job](#Task-1-Create-an-Empty-Job)
-    - [Task 2: Add Build Artifact](#Task-2-Add-Build-Artifact)
-    - [Task 3: Add Variables to Deploy & Test stage](#Task-3-Add-Variables-to-Deploy--Test-stage)
-    - [Task 4: Setup Agent Pool for Deploy & Test stage](#Task-4-Setup-Agent-Pool-for-Deploy--Test-stage)
-    - [Task 5: Add Use Python Version task](#Task-5-Add-Use-Python-Version-task)
-    - [Task 6: Add Install Requirements task](#Task-6-Add-Install-Requirements-task)
-    - [Task 7: Add Deploy & Test Webservice task](#Task-7-Add-Deploy--Test-Webservice-task)
-    - [Task 8: Define Deployment Trigger](#Task-8-Define-Deployment-Trigger)
-    - [Task 9: Enable Continuous Deployment Trigger](#Task-9-Enable-Continuous-Deployment-Trigger)
-    - [Task 10: Save the Release Pipeline](#Task-10-Save-the-Release-Pipeline)
-  - [Exercise 6: Test Build and Release Pipelines](#Exercise-6-Test-Build-and-Release-Pipelines)
-    - [Task 1: Make Edits to Source Code](#Task-1-Make-Edits-to-Source-Code)
-    - [Task 2: Monitor Build Pipeline](#Task-2-Monitor-Build-Pipeline)
-    - [Task 3: Monitor Release Pipeline](#Task-3-Monitor-Release-Pipeline)
-    - [Task 4: Review Release Pipeline Outputs](#Task-4-Review-Release-Pipeline-Outputs)
-  - [Exercise 7: Testing the deployed solution](#Exercise-7-Testing-the-deployed-solution)
-    - [Task 1: Test the Deployment](#Task-1-Test-the-Deployment)
-  - [Exercise 8: Examining deployed model performance](#Exercise-8-Examining-deployed-model-performance)
-    - [Task 1: Activate App Insights and data collection on the deployed model](#Task-1-Activate-App-Insights-and-data-collection-on-the-deployed-model)
-    - [Task 2: Check Application Insights telemetry](#Task-2-Check-Application-Insights-telemetry)
-    - [Task 3: Check the data collected](#Task-3-Check-the-data-collected)
-  - [After the hands-on lab](#After-the-hands-on-lab)
-    - [Task 1: Clean up lab resources](#Task-1-Clean-up-lab-resources)
+- [MLOps hands-on lab step-by-step](#mlops-hands-on-lab-step-by-step)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
+  - [Overview](#overview)
+  - [Solution architecture](#solution-architecture)
+  - [Requirements](#requirements)
+  - [Before the hands-on lab](#before-the-hands-on-lab)
+  - [Exercise 1: Creating and evaluating compliance classification models](#exercise-1-creating-and-evaluating-compliance-classification-models)
+    - [Task 1: Create the classification model using a notebook](#task-1-create-the-classification-model-using-a-notebook)
+  - [Exercise 2: Registering the model](#exercise-2-registering-the-model)
+    - [Task 1: Register Model using Azure Machine Learning Python SDK](#task-1-register-model-using-azure-machine-learning-python-sdk)
+    - [Task 2: Register Model from Azure Portal](#task-2-register-model-from-azure-portal)
+  - [Exercise 3: Setup New Project in Azure DevOps](#exercise-3-setup-new-project-in-azure-devops)
+    - [Task 1: Create New Project](#task-1-create-new-project)
+    - [Task 2: Import Quickstart code from a GitHub Repo](#task-2-import-quickstart-code-from-a-github-repo)
+    - [Task 3: Update the build YAML file](#task-3-update-the-build-yaml-file)
+    - [Task 4: Create new Service Connection](#task-4-create-new-service-connection)
+  - [Exercise 4: Setup and Run the Build Pipeline](#exercise-4-setup-and-run-the-build-pipeline)
+    - [Task 1: Setup Build Pipeline](#task-1-setup-build-pipeline)
+    - [Task 2: Run the Build Pipeline](#task-2-run-the-build-pipeline)
+    - [Task 3: Review Build Artifacts](#task-3-review-build-artifacts)
+    - [Task 4: Review Build Outputs](#task-4-review-build-outputs)
+  - [Exercise 5: Setup the Release Pipeline](#exercise-5-setup-the-release-pipeline)
+    - [Task 1: Create an Empty Job](#task-1-create-an-empty-job)
+    - [Task 2: Add Build Artifact](#task-2-add-build-artifact)
+    - [Task 3: Add Variables to Deploy & Test stage](#task-3-add-variables-to-deploy--test-stage)
+    - [Task 4: Setup Agent Pool for Deploy & Test stage](#task-4-setup-agent-pool-for-deploy--test-stage)
+    - [Task 5: Add Use Python Version task](#task-5-add-use-python-version-task)
+    - [Task 6: Add Install Requirements task](#task-6-add-install-requirements-task)
+    - [Task 7: Add Deploy & Test Webservice task](#task-7-add-deploy--test-webservice-task)
+    - [Task 8: Define Deployment Trigger](#task-8-define-deployment-trigger)
+    - [Task 9: Enable Continuous Deployment Trigger](#task-9-enable-continuous-deployment-trigger)
+    - [Task 10: Save the Release Pipeline](#task-10-save-the-release-pipeline)
+  - [Exercise 6: Test Build and Release Pipelines](#exercise-6-test-build-and-release-pipelines)
+    - [Task 1: Make Edits to Source Code](#task-1-make-edits-to-source-code)
+    - [Task 2: Monitor Build Pipeline](#task-2-monitor-build-pipeline)
+    - [Task 3: Monitor Release Pipeline](#task-3-monitor-release-pipeline)
+    - [Task 4: Review Release Pipeline Outputs](#task-4-review-release-pipeline-outputs)
+  - [Exercise 7: Testing the deployed solution](#exercise-7-testing-the-deployed-solution)
+    - [Task 1: Test the Deployment](#task-1-test-the-deployment)
+  - [Exercise 8: Examining deployed model performance](#exercise-8-examining-deployed-model-performance)
+    - [Task 1: Activate App Insights and data collection on the deployed model](#task-1-activate-app-insights-and-data-collection-on-the-deployed-model)
+    - [Task 2: Check Application Insights telemetry](#task-2-check-application-insights-telemetry)
+    - [Task 3: Check the data collected](#task-3-check-the-data-collected)
+  - [After the hands-on lab](#after-the-hands-on-lab)
+    - [Task 1: Clean up lab resources](#task-1-clean-up-lab-resources)
 
 <!-- /TOC -->
 
-# MLOps hands-on lab step-by-step 
+# MLOps hands-on lab step-by-step
 
-## Abstract and learning objectives 
+## Abstract and learning objectives
 
 In this hands-on lab, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments and most importantly, improves inferencing speed over the native model. You will build a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application and inferencing web service. After a first successful deployment, you will make updates to both the model, the and web application, and execute the pipeline once to achieve an updated deployment. You will also learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues.
 
@@ -99,7 +98,7 @@ The overall approach used in this lab is to orchestrate continuous integration a
 
 ## Requirements
 
-1.  Microsoft Azure subscription must be pay-as-you-go or MSDN.
+1. Microsoft Azure subscription must be pay-as-you-go or MSDN.
 
     - Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
 
@@ -109,7 +108,7 @@ The overall approach used in this lab is to orchestrate continuous integration a
 
 ## Before the hands-on lab
 
-Refer to the Before the hands-on lab setup guide manual before continuing to the lab exercises.
+Refer to the [Before the hands-on lab setup guide manual](./Before&#32;the&#32;HOL&#32;-&#32;MLOps.md) before continuing to the lab exercises.
 
 ## Exercise 1: Creating and evaluating compliance classification models
 
@@ -127,7 +126,6 @@ In this exercise, you create a model for classifying component text as compliant
 
     >**Note**: The **model.h5** file is generated during the execution of the notebook at the previous step (step 2). When running the notebook, make sure the execution is successful and the file is correctly created.
 
-
 ## Exercise 2: Registering the model
 
 Duration: 15 minutes
@@ -142,28 +140,27 @@ In this exercise, you explore the approaches you can take to managing the model 
 
 3. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
 
-    ![Review registered model in Azure Portal.](media/60.png 'Registered Model: compliance-classifier')
-    
+    ![Review registered model in Azure Portal.](media/60.png 'Registered Model: compliance-classifier'
+
 ### Task 2: Register Model from Azure Portal
 
 1. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section and select **Add Model**.
 
-  ![Register Model from Azure Portal by selecting Add Model in Models section.](media/61.png 'Add Model in Azure Portal')
+    ![Register Model from Azure Portal by selecting Add Model in Models section.](media/61.png 'Add Model in Azure Portal')
   
 2. Provide the following input to the `Register a Model page`, and then select **Create**.
 
    a. Name: `compliance-classifier`
-   
+
    b. Description: `Deep learning model to classify the descriptions of car components as compliant or non-compliant.`
-   
+
    c. Select the `model.h5` file from your local disk.
 
-   ![Register a Model in Azure Portal by providing the model file from your local computer.](media/62.png 'Register a Model Dialog')
-   
+    ![Register a Model in Azure Portal by providing the model file from your local computer.](media/62.png 'Register a Model Dialog')
+
 3. Navigate to your **Resource Group, Workspace, Models** section, and observe the **version 2** of the registered model: `compliance-classifier`.
 
-  ![Review the new registered model compliance-classifier version 2 in Azure Portal.](media/63.png 'Registered Model: compliance-classifier version 2')
-
+    ![Review the new registered model compliance-classifier version 2 in Azure Portal.](media/63.png 'Registered Model: compliance-classifier version 2')
 
 ## Exercise 3: Setup New Project in Azure DevOps
 
@@ -186,11 +183,11 @@ Duration: 20 minutes
 1. Within the new project:
 
    a. Select **Repos** from left navigation bar.
-   
+
    b. Select **Import** from the content section.
-   
-      ![Import Quickstart code from a GitHub Repo.](media/03.png 'Azure DevOps Repos')
-   
+
+    ![Import Quickstart code from a GitHub Repo.](media/03.png 'Azure DevOps Repos')
+
 2. Provide the following GitHub URL: `https://github.com/solliancenet/mcw-mlops-starter` and select **Import**. This should import the code required for the quickstart.
 
     ![Provide the above GitHub URL and select import to import the source code.](media/04.png 'Import a Git repository dialog')
@@ -218,17 +215,16 @@ Duration: 20 minutes
     ![Select New Service Connection, Azure Resource Manager.](media/08.png 'Azure Resource Manager')
 
 3. Provide the following information in the `Add an Azure Resource Manager service connection` dialog box and then select **Ok**:
- 
+
    a. Connection name: `quick-starts-sc`
-   
+
    b. Subscription: Select the Azure subscription to use.
 
    >**Note**: It might take up to 30 seconds for the **Subscription** dropdown to be populated with available subscriptions, depending on the number of different subscriptions your account has access to.
-   
-   c. Resource Group: This value should match the value you provided in the `azure-pipelines.yml` file.
-   
-    ![Provide connection name, and Azure Resource Group and then select Ok. The resource group should match the value you provided in the YAML file.](media/09.png 'Add an Azure Resource Manager service connection dialog')
 
+   c. Resource Group: This value should match the value you provided in the `azure-pipelines.yml` file.
+
+    ![Provide connection name, and Azure Resource Group and then select Ok. The resource group should match the value you provided in the YAML file.](media/09.png 'Add an Azure Resource Manager service connection dialog')
 
 ## Exercise 4: Setup and Run the Build Pipeline
 
@@ -239,7 +235,7 @@ Duration: 25 minutes
 1. From left navigation select **Pipelines, Builds** and then select **New pipeline**.
 
     ![Navigate to Pipelines, Builds, and then select New pipeline](media/10.png 'New Build Pipeline')
-    
+
 2. Select **Azure Repos Git** as your code repository.
 
     ![Select your code repository source for your new build pipeline.](media/11.png 'Repository Source')
@@ -251,13 +247,13 @@ Duration: 25 minutes
 4. Review the YAML file.
 
     The build pipeline has four key steps:
-    
+
     a. Attach folder to workspace and experiment. This command creates the `.azureml` subdirectory that contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace. All subsequent steps rely on the `config.json` file to instantiate the workspace object.
-    
+
     b. Create the AML Compute target to run your master pipeline for model training and model evaluation.
-    
+
     c. Run the master pipeline. The master pipeline has two steps: (1) Train the machine learning model, and (2) Evaluate the trained machine learning model. The evaluation step evaluates if the new model performance is better than the currently deployed model. If the new model performance is improved, the evaluate step will create a new Image for deployment. The results of the evaluation step will be saved in a file called `eval_info.json` that will be made available for the release pipeline. You can review the code for the master pipeline and its steps in `aml_service/pipelines_master.py`,  `scripts/train.py`, and `scripts/evaluate.py`.
-    
+
     d. Publish the build artifacts. The `snapshot of the repository`, `config.json`, and `eval_info.json` files are published as build artifacts and thus can be made available for the release pipeline.
 
     ![Review the build pipeline YAML file.](media/13.png 'Build pipeline YAML')
@@ -295,8 +291,7 @@ Duration: 25 minutes
 2. Open your **Resource Group, Workspace, Images** section and observe the deployment image created during the build pipeline: `compliance-classifier-image`.
 
     ![Review deployment image in Azure Portal.](media/54.png 'Images in Azure Portal')
-    
-    
+
 ## Exercise 5: Setup the Release Pipeline
 
 Duration: 20 minutes
@@ -324,7 +319,7 @@ Duration: 20 minutes
 2. Select Source type: `Build`, Source (build pipeline): `mlops-quickstart`. *Observe the note that shows that the mlops-quickstart publishes the build artifact named devops-for-ai*. Finally, select **Add**.
 
     ![Provide information to add the build artifact.](media/23.png 'Add a build artifact')
-    
+
 ### Task 3: Add Variables to Deploy & Test stage
 
 1. Open **View stage tasks** link.
@@ -338,9 +333,9 @@ Duration: 20 minutes
 3. Add four Pipeline variables as name - value pairs and then select **Save**:
 
     a. Name: `aks_name` Value: `aks-cluster01`
-    
+
     b. Name: `description` Value: `"Compliance Classifier Web Service"` *Note the double quotes around description value*.
-    
+
     c. Name: `service_name` Value: `compliance-classifier-service`
 
     d. Name: `aks_region` Value: `eastus`
@@ -348,19 +343,19 @@ Duration: 20 minutes
     >**Note**:
     >- Keep the scope for the variables to `Deploy & Test` stage.
     >- The name of the Azure region should be the same one that was used to create Azure Machine Learning workspace earlier on.
-    
+
       ![Add four pipeline variables as name value pairs and save.](media/26.png 'Add Pipeline Variables')
-      
+
 ### Task 4: Setup Agent Pool for Deploy & Test stage
-        
+
 1. Open the **Tasks** tab.
 
     ![Open view stage tasks link.](media/27.png 'Pipeline Tasks')
-    
+
 2. Select **Agent job** and change **Agent pool** to `Azure Pipelines` and change **Agent Specification** to `ubuntu-16.04`.
 
     ![Change Agent pool to be Hosted Ubuntu 1604.](media/28_2.png 'Agent Job Setup')
-    
+
 ### Task 5: Add Use Python Version task
 
 1. Select **Add a task to Agent job**, search for `Use Python Version`, and select **Add**.
@@ -370,11 +365,11 @@ Duration: 20 minutes
 2. Provide **Display name:** `Use Python 3.6` and **Version spec:** `3.6`.
 
     ![Provide Display name and Version spec for the Use Python version task.](media/30.png 'Use Python Version Task Dialog')
-    
+
 ### Task 6: Add Install Requirements task
 
 1. Select **Add a task to Agent job**, search for `Bash`, and select **Add**.
-    
+
     ![Add Bash task to Agent job.](media/31.png 'Add Bash Task')
 
 2. Provide **Display name:** `Install Requirements` and select **object browser ...** to provide **Script Path**.
@@ -388,17 +383,17 @@ Duration: 20 minutes
 4. Expand **Advanced** and select **object browser ...** to provide **Working Directory**.
 
     ![Expand advanced section to provide Working Directory.](media/34.png 'Bash Task - Advanced Section')
-    
+
 5. Navigate to **Linked artifacts/_mlops-quickstart/devops-for-ai** and select **environment_setup**.
 
     ![Provide path to the Working Directory.](media/35.png 'Select Path Dialog')
-    
+
 ### Task 7: Add Deploy & Test Webservice task
-    
+
 1. Select **Add a task to Agent job**.
 
     ![Select Add a task to Agent job.](media/36_1.png 'Add a Task to Agent job')
-    
+
 2. Search for `Azure CLI`, and select **Add**
 
     ![Add Azure CLI task to Agent job.](media/36_2.png 'Azure CLI Task')
@@ -406,19 +401,18 @@ Duration: 20 minutes
 3. Provide the following information for the Azure CLI task:
 
     a. Display name: `Deploy & Test Webservice`
-    
+
     b. Azure subscription: `quick-starts-sc` *This is the service connection we created in Exercise 1 / Task 4*.
-    
+
     c. Script Location: `Inline script`
-    
+
     d. Inline Script: `python aml_service/deploy.py --service_name $(service_name) --aks_name $(aks_name) --aks_region $(aks_region) --description $(description)`
-    
-      ![Setup the Azure CLI task using the information above.](media/38.png 'Azure CLI Task Dialog')
+
+    ![Setup the Azure CLI task using the information above.](media/38.png 'Azure CLI Task Dialog')
 
 4. Expand **Advanced** and provide **Working Directory:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/devops-for-ai`.
 
     ![Provide Working Directory for the Azure CLI task.](media/39.png 'Azure CLI Task - Working Directory')
-    
 
 Please review the code in `aml_service/deploy.py`. This step will read the `eval_info.json` and if the evaluation step recommended to deploy the new trained model, it will deploy the new model to production in an **Azure Kubernetes Service (AKS)** cluster.
 
@@ -439,7 +433,7 @@ Please review the code in `aml_service/deploy.py`. This step will read the `eval
 2. Enable: **Creates a release every time a new build is available**.
 
     ![Enable Continuous Deployment Trigger for the Release pipeline.](media/41.png 'Continuous Deployment Trigger Dialog')
-    
+
 3. Close the dialog
 
 ### Task 10: Save the Release Pipeline
@@ -453,7 +447,7 @@ Please review the code in `aml_service/deploy.py`. This step will read the `eval
 3. Select: **Ok**.
 
     ![Select Ok.](media/43.png 'Save - Ok')
-    
+
 ## Exercise 6: Test Build and Release Pipelines
 
 Duration: 30 minutes
@@ -471,27 +465,27 @@ Duration: 30 minutes
 5. Select **Commit**.
 
     ![Make edits to train.py by changing the learning rate. Select Commit after editing.](media/44_1.png 'Edit Train.py')
-    
+
 6. Provide comment: `Improving model performance: changed learning rate.` and select **Commit**.
 
     ![Provide commit comment for train.py.](media/45_1.png 'Commit - Comment')
-    
+
 ### Task 2: Monitor Build Pipeline
 
 1. Navigate to **Pipelines, Builds**. Observe that the CI build is triggered because of the source code change. 
 
    ![Navigate to Pipelines, Builds.](media/46_1.png 'Pipelines - Builds')
-   
+
 2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 16-18 minutes. Proceed to the next task when the build pipeline successfully completes.
-    
+
    ![Monitor Build Pipeline. It will take around 16-18 minutes to complete.](media/47.png 'Build Pipeline Steps')
 
 ### Task 3: Monitor Release Pipeline
 
 1. Navigate to **Pipelines, Releases**. Observe that the Release pipeline is automatically trigger upon successful completion of the build pipeline. Select as shown in the figure to view pipeline logs. 
-    
+
    ![Navigate to Pipelines, Releases and Select as shown in the figure to view pipeline logs.](media/48.png 'Pipelines - Releases')
-   
+
 2. The release pipeline will run for about 15 minutes. Proceed to the next task when the release pipeline successfully completes.
 
 ### Task 4: Review Release Pipeline Outputs
@@ -499,7 +493,7 @@ Duration: 30 minutes
 1. From the pipeline logs view, select **Deploy & Test Webservice** task to view details.
 
     ![Select Deploy & Test Webservice task to view details.](media/50.png 'Pipeline Logs')
-    
+
 2. Observe the **Scoring URI** and **API Key** for the deployed webservice. Please note down both the `Scoring URI` and `API Key` for *Exercise 7*.
 
     ![View Deploy & Test Webservice task logs and note down the Scoring URI of the deployed webservice.](media/51.png 'Deploy & Test Webservice Task Logs')
@@ -507,7 +501,6 @@ Duration: 30 minutes
 3. Log in to Azure Portal. Open your **Resource Group, Workspace, Deployments** section, and observe the deployed webservice: **compliance-classifier-service**.
 
     ![View deployed webservice in Azure Portal.](media/52.png 'Azure Portal - Workspace, Deployments')
-
 
 ## Exercise 7: Testing the deployed solution
 
@@ -522,7 +515,6 @@ In this exercise, you verify that the first release of the application works.
 2. Follow the instructions within the notebook to complete the lab.
 
 3. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
- 
 
 ## Exercise 8: Examining deployed model performance
 
@@ -583,8 +575,7 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
     ![Locate telemetry data in the blob container.](media/telemetry-07.png 'Storage Explorer - data.csv')
 
-
-## After the hands-on lab 
+## After the hands-on lab
 
 Duration: 5 minutes
 
@@ -592,21 +583,20 @@ To avoid unexpected charges, it is recommended that you clean up all of your lab
 
 ### Task 1: Clean up lab resources
 
-1.  Navigate to the Azure Portal and locate the `MCW-AI-Lab` Resource Group you created for this lab.
+1. Navigate to the Azure Portal and locate the `MCW-AI-Lab` Resource Group you created for this lab.
 
-2.  Select **Delete resource group** from the command bar.
+2. Select **Delete resource group** from the command bar.
 
     ![Screenshot of the Delete resource group button.](media/image71.png 'Delete resource group button')
 
-3.  In the confirmation dialog that appears, enter the name of the resource group and select **Delete**.
+3. In the confirmation dialog that appears, enter the name of the resource group and select **Delete**.
 
-4.  Wait for the confirmation that the Resource Group has been successfully deleted. If you don't wait, and the delete fails for some reason, you may be left with resources running that were not expected. You can monitor using the Notifications dialog, which is accessible from the Alarm icon.
+4. Wait for the confirmation that the Resource Group has been successfully deleted. If you don't wait, and the delete fails for some reason, you may be left with resources running that were not expected. You can monitor using the Notifications dialog, which is accessible from the Alarm icon.
 
     ![The Notifications dialog box has a message stating that the resource group is being deleted.](media/image72.png 'Delete Resource Group Notification Dialog')
 
-5.  When the Notification indicates success, the cleanup is complete.
+5. When the Notification indicates success, the cleanup is complete.
 
     ![The Notifications dialog box has a message stating that the resource group has been deleted.](media/image73.png 'Delete Resource Group Notification Dialog')
 
 You should follow all steps provided _after_ attending the Hands-on lab.
-
