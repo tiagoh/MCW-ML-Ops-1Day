@@ -177,13 +177,13 @@ Duration: 20 minutes
 
 1. Sign in to [Azure DevOps](http://dev.azure.com).
 
-2. Select **Create project**.
+2. Select **New project**.
 
-    ![Create new project in Azure DevOPs.](media/01.png 'Create project')
+    ![Create new project in Azure DevOPs.](media/devops-project-01.png 'Create new project')
 
 3. Provide Project Name: `mlops-quickstart` and select **Create**.
 
-    ![Provide project name in the create new project dialog and then select create.](media/02.png 'Create New Project Dialog')
+    ![Provide project name in the create new project dialog and then select create.](media/devops-project-02.png 'Create New Project Dialog')
 
 ### Task 2: Import Quickstart code from a GitHub Repo
 
@@ -193,11 +193,11 @@ Duration: 20 minutes
 
    b. Select **Import** from the content section.
 
-    ![Import Quickstart code from a GitHub Repo.](media/03.png 'Azure DevOps Repos')
+    ![Import Quickstart code from a GitHub Repo.](media/devops-project-03.png 'Azure DevOps Repos')
 
 2. Provide the following GitHub URL: `https://github.com/solliancenet/mcw-mlops-starter` and select **Import**. This should import the code required for the quickstart.
 
-    ![Provide the above GitHub URL and select import to import the source code.](media/04.png 'Import a Git repository dialog')
+    ![Provide the above GitHub URL and select import to import the source code.](media/devops-project-04.png 'Import a Git repository dialog')
 
 ### Task 3: Update the build YAML file
 
@@ -205,33 +205,43 @@ Duration: 20 minutes
 
 2. Select **Edit** and update the following variables: `resourcegroup`, and `workspace`. If you are using your own Azure subscription, please provide names to use. If an environment is provided to you be sure to replace XXXXX in the values below with your unique identifier.
 
-    ![Edit build YAML file and provide your resource group and workspace information.](media/05.png 'Edit Build YAML file')
+    ![Edit build YAML file and provide your resource group and workspace information.](media/devops-build-pipeline-01.png 'Edit Build YAML file')
 
 3. Select **Commit** to save your changes.
 
-    ![Commit your changes to the build YAML file.](media/06.png 'Commit Build YAML file')
+    ![Commit your changes to the build YAML file.](media/devops-build-pipeline-02.png 'Commit Build YAML file')
   
 ### Task 4: Create new Service Connection
 
 1. From the left navigation select **Project settings** and then select **Service connections**.
 
-    ![Navigate to Project Settings, Service connections section.](media/07.png 'Service Connections')
+    ![Navigate to Project Settings, Service connections section.](media/devops-build-pipeline-03.png 'Service Connections')
 
-2. Select **New service connection** and then select **Azure Resource Manager**.
+2. Select **Create service connection**, select **Azure Resource Manager**, and then select **Next**.
 
-    ![Select New Service Connection, Azure Resource Manager.](media/08.png 'Azure Resource Manager')
+    ![Select Create Service Connection, Azure Resource Manager.](media/devops-build-pipeline-04.png 'Azure Resource Manager')
 
-3. Provide the following information in the `Add an Azure Resource Manager service connection` dialog box and then select **Ok**:
+3. Select **Service principal (automatic)** and then select **Next**.
 
-   a. Connection name: `quick-starts-sc`
+    ![Select Service principal (automatic), and then select Next.](media/devops-build-pipeline-05.png 'Service principal authentication')
 
-   b. Subscription: Select the Azure subscription to use.
+4. Provide the following information in the `New Azure service connection` dialog box and then select **Save**:
 
-   >**Note**: It might take up to 30 seconds for the **Subscription** dropdown to be populated with available subscriptions, depending on the number of different subscriptions your account has access to.
+    a. Type: `Machine Learning Workspace`
 
-   c. Resource Group: This value should match the value you provided in the `azure-pipelines.yml` file.
+    b. Subscription: Select the Azure subscription to use.
 
-    ![Provide connection name, and Azure Resource Group and then select Ok. The resource group should match the value you provided in the YAML file.](media/09.png 'Add an Azure Resource Manager service connection dialog')
+    > **Note**: It might take up to 30 seconds for the **Subscription** dropdown to be populated with available subscriptions, depending on the number of different subscriptions your account has access to.
+
+    c. Resource group: This value should match the value you provided in the `azure-pipelines.yml` file.
+
+    d. Machine Learning Workspace: This value should match the value you provided in the `azure-pipelines.yml` file.
+
+    e. Service connection name: `quick-starts-sc`
+
+    f. Grant access permission to all pipelines: this checkbox must be selected.
+
+    ![Provide connection name, Azure Resource Group, Machine Learning Workspace, and then select Save. The resource group and machine learning workspace must match the value you provided in the YAML file.](media/devops-build-pipeline-06.png 'Add an Azure Resource Manager service connection dialog')
 
 ## Exercise 4: Setup and Run the Build Pipeline
 
@@ -239,17 +249,17 @@ Duration: 25 minutes
 
 ### Task 1: Setup Build Pipeline
 
-1. From left navigation select **Pipelines, Builds** and then select **New pipeline**.
+1. From left navigation select **Pipelines, Pipelines** and then select **Create pipeline**.
 
-    ![Navigate to Pipelines, Builds, and then select New pipeline](media/10.png 'New Build Pipeline')
+    ![Navigate to Pipelines, Pipelines, and then select Create pipeline](media/devops-build-pipeline-07.png 'Create Build Pipeline')
 
 2. Select **Azure Repos Git** as your code repository.
 
-    ![Select your code repository source for your new build pipeline.](media/11.png 'Repository Source')
+    ![Select your code repository source for your new build pipeline.](media/devops-build-pipeline-08.png 'Repository Source')
 
 3. Select **mlops-quickstart** as your repository.
 
-    ![Select mlops-quickstart as your repository.](media/12.png 'Select Repository')
+    ![Select mlops-quickstart as your repository.](media/devops-build-pipeline-09.png 'Select Repository')
 
 4. Review the YAML file.
 
@@ -263,13 +273,13 @@ Duration: 25 minutes
 
     d. Publish the build artifacts. The `snapshot of the repository`, `config.json`, and `eval_info.json` files are published as build artifacts and thus can be made available for the release pipeline.
 
-    ![Review the build pipeline YAML file.](media/13.png 'Build pipeline YAML')
+    ![Review the build pipeline YAML file.](media/devops-build-pipeline-10.png 'Build pipeline YAML')
 
 ### Task 2: Run the Build Pipeline
 
 1. Select **Run** to start running your build pipeline.
 
-    ![Start the run for your build pipeline.](media/14.png 'Run Build Pipeline')
+    ![Start the run for your build pipeline.](media/devops-build-pipeline-11.png 'Run Build Pipeline')
 
 2. Monitor the build run. The build pipeline, for the first run, will take around 15-20 minutes to run.
 
