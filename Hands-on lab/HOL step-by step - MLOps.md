@@ -402,7 +402,7 @@ Duration: 20 minutes
 
 ### Task 5: Add Use Python Version task
 
-1. Select **Add a task to Agent job**, search for `Use Python Version`, and select **Add**.
+1. Select **Add a task to Agent job** (the **+** button), search for `Use Python Version`, and select **Add**.
 
     ![Add Use Python Version task to Agent job.](media/devops-release-pipeline-11.png 'Add Use Python Version Task')
 
@@ -412,7 +412,7 @@ Duration: 20 minutes
 
 ### Task 6: Add Install Requirements task
 
-1. Select **Add a task to Agent job**, search for `Bash`, and select **Add**.
+1. Select **Add a task to Agent job** (the **+** button), search for `Bash`, and select **Add**.
 
     ![Add Bash task to Agent job.](media/devops-release-pipeline-13.png 'Add Bash Task')
 
@@ -434,7 +434,7 @@ Duration: 20 minutes
 
 ### Task 7: Add Deploy & Test Webservice task
 
-1. Select **Add a task to Agent job**, search for `Azure CLI`, and select **Add**.
+1. Select **Add a task to Agent job** (the **+** button), search for `Azure CLI`, and select **Add**.
 
     ![Add Azure CLI task to Agent job.](media/devops-release-pipeline-18.png 'Azure CLI Task')
 
