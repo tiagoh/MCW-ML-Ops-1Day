@@ -281,33 +281,53 @@ Duration: 25 minutes
 
     ![Start the run for your build pipeline.](media/devops-build-pipeline-11.png 'Run Build Pipeline')
 
-2. Monitor the build run. The build pipeline, for the first run, will take around 15-20 minutes to run.
+2. Monitor the build run. The build pipeline, for the first run, will take around 15 minutes to run.
 
-    ![Monitor your build pipeline. It will take around 15 to 20 minutes to run.](media/15.png 'Monitor Build Pipeline')
+    ![Monitor your build pipeline. It will take around 15 minutes to run.](media/devops-build-pipeline-12.png 'Monitor Build Pipeline')
+
+3. Select **Job** to monitor the detailed status of the build pipeline execution.
+
+    ![Monitor the details of your build pipeline.](media/devops-build-pipeline-13.png 'Monitor Build Pipeline Details')
 
 ### Task 3: Review Build Artifacts
 
-1. The build will publish an artifact named `devops-for-ai`. Select **Artifacts, devops-for-ai** to review the artifact contents.
+1. The build will publish an artifact named `devops-for-ai`. Select **Artifacts, 1 published** to review the artifact contents.
 
-    ![Select Artifacts, devops-for-ai to review the artifact contents.](media/16.png 'Build Artifacts')
+    ![Select Artifacts, 1 published to review the artifact contents.](media/devops-build-pipeline-14.png 'Build Artifacts')
 
-2. Select **outputs, eval_info.json** and then select **Download**. The `eval_info.json` is the output from the *model evaluation* step and the information from the evaluation step will be later used in the release pipeline to deploy the model. Select **Close** to close the dialog.
+2. Select **outputs, eval_info.json** and then select the download arrow. The `eval_info.json` is the output from the *model evaluation* step and the information from the evaluation step will be later used in the release pipeline to deploy the model. Select the back arrow to return to the previous screen.
 
-    ![Download output from the model evaluation step.](media/17.png 'Download JSON file')
+    ![Download output from the model evaluation step.](media/devops-build-pipeline-15.png 'Download JSON file')
 
 3. Open the `eval_info.json` in a json viewer or a text editor and observe the information. The json output contains information such as if the model passed the evaluation step (`deploy_model`: *true or false*), and the name and id of the created image (`image_name` and `image_id`) to deploy.
 
-    ![Review information in the eval_info json file.](media/18.png 'Eval Info JSON File')
+    ![Review information in the eval_info json file.](media/devops-build-pipeline-16.png 'Eval Info JSON File')
 
 ### Task 4: Review Build Outputs
 
-1. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section, and observe the registered model: `compliance-classifier`.
+1. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook earlier. Open your **Models** section, and observe the versions of the registered model: `compliance-classifier`. The latest version is the one registered by the build pipeline you have run in the previous task.
 
-    ![Review registered model in Azure Portal.](media/53.png 'Registered Models in Azure Portal')
+    ![Review registered model in Azure Machine Learning studio.](media/devops-build-outputs-01.png 'Registered Models in Azure Machine Learning studio')
 
-2. Open your **Resource Group, Workspace, Images** section and observe the deployment image created during the build pipeline: `compliance-classifier-image`.
+2. Select the latest version of your model to review its properties. Notice the ```build_number``` tag which links the registered to model to the Azure DevOps build that generated it.
 
-    ![Review deployment image in Azure Portal.](media/54.png 'Images in Azure Portal')
+    ![Review registered model properties, notice Build_Number tag.](!media/../media/devops-build-outputs-02.png 'Registered model details and Build_Number tag')
+
+3. Open your **Datasets** section and observe the versions of the registered dataset: ```connected_car_components```. The latest version is the one registered by the build pipeline you have run in the previous task.
+
+    ![Review registered dataset in Azure Machine Learning studio.](media/devops-build-outputs-03.png 'Registered Datasets in Azure Machine Learning studio')
+
+4. Select the latest version of your dataset to review its properties. Notice the ```build_number``` tag that links the dataset version to the Azure DevOps build that generated it.
+
+    ![Review registered dataset version properties, notice Build_Number tag.](medial/../media/devops-build-outputs-04.png 'Registered dataset details in Azure Machine Learning studio')
+
+5. Select **Models** to view a list of registered models that reference the dataset.
+
+    ![Review list of registered models that reference dataset in Azure Machine Learning studio.](media/devops-build-outputs-05.png 'Registered dataset model references in Azure Machine Learning studio')
+
+6. Log in to the [Azure Portal](https://portal.azure.com), open your **Resource Group, Workspace, Images** section and observe the deployment image created during the build pipeline: `compliance-classifier-image`.
+
+    ![Review deployment image in Azure Portal.](media/devops-build-outputs-06.png 'Images in Azure Portal')
 
 ## Exercise 5: Setup the Release Pipeline
 
