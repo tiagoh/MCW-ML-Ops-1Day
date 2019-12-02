@@ -9,7 +9,7 @@ Whiteboard design session student guide
 </div>
 
 <div class="MCWHeader3">
-June 2019
+November 2019
 </div>
 
 
@@ -27,20 +27,20 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- TOC -->
 
-- [MLOps whiteboard design session student guide](#MLOps-whiteboard-design-session-student-guide)
-  - [Abstract and learning objectives](#Abstract-and-learning-objectives)
-  - [Step 1: Review the customer case study](#Step-1-Review-the-customer-case-study)
-    - [Customer situation](#Customer-situation)
-    - [Customer needs](#Customer-needs)
-    - [Customer objections](#Customer-objections)
-    - [Infographic for common scenarios](#Infographic-for-common-scenarios)
-  - [Step 2: Design a proof of concept solution](#Step-2-Design-a-proof-of-concept-solution)
-  - [Step 3: Present the solution](#Step-3-Present-the-solution)
-  - [Wrap-up](#Wrap-up)
+- [MLOps whiteboard design session student guide](#mlops-whiteboard-design-session-student-guide)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
+  - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
+    - [Customer situation](#customer-situation)
+    - [Customer needs](#customer-needs)
+    - [Customer objections](#customer-objections)
+    - [Infographic for common scenarios](#infographic-for-common-scenarios)
+  - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
+  - [Step 3: Present the solution](#step-3-present-the-solution)
+  - [Wrap-up](#wrap-up)
 
 <!-- /TOC -->
 
-#  MLOps whiteboard design session student guide
+# MLOps whiteboard design session student guide
 
 ## Abstract and learning objectives 
 
@@ -58,11 +58,11 @@ Timeframe: 15 minutes
 
 Directions:  With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
 
-1.  Meet your table participants and trainer.
+1. Meet your table participants and trainer.
 
-2.  Read all of the directions for steps 1-3 in the student guide.
+2. Read all of the directions for steps 1-3 in the student guide.
 
-3.  As a table team, review the following customer case study.
+3. As a table team, review the following customer case study.
 
 ### Customer situation
 
@@ -74,22 +74,21 @@ According to Francine Fischer, CIO of Trey Research, they want to ensure the ove
 
 Finally, Trey would like to ensure that the process they establish is not littered with username and password credentials used to access the component used during build and release.
 
-### Customer needs 
+### Customer needs
 
-1.  Want to understand the best practice process they should follow for end-to-end deployment of deep learning models.
+1. Want to understand the best practice process they should follow for end-to-end deployment of deep learning models.
 
-2.  Need a solution that addresses the management of the entire model lifecycle, inclusive of monitoring the model in production and being able re-train and re-deploy when a model needs updating.
+2. Need a solution that addresses the management of the entire model lifecycle, inclusive of monitoring the model in production and being able re-train and re-deploy when a model needs updating.
 
-3.  A process that avoids checking credentials into source control.
+3. A process that avoids checking credentials into source control.
 
+### Customer objections
 
-### Customer objections 
+1. We are not clear about the benefits that using ONNX might bring to our current scenario and future scenario.
 
-1.  We are not clear about the benefits that using ONNX might bring to our current scenario and future scenario.
+2. It seems like data scientists deploy their models as web services from their own python scripts, where as our developers are accustomed to using Azure DevOps to deploy their web services. Can we really have one tool that provides us build and deployment pipelines irrespective of whether we are deploying a model or web application code?
 
-2.  It seems like data scientists deploy their models as web services from their own python scripts, where as our developers are accustomed to using Azure DevOps to deploy their web services. Can we really have one tool that provides us build and deployment pipelines irrespective of whether we are deploying a model or web application code?
-
-3.  Obviously, we can't just have new models automatically deployed into production. What kind of safeguards can we put in place?
+3. Obviously, we can't just have new models automatically deployed into production. What kind of safeguards can we put in place?
 
 ### Infographic for common scenarios
 
@@ -107,9 +106,9 @@ Timeframe: 60 minutes
 
 Directions: With all participants at your table, answer the following questions and list the answers on a flip chart:
 
-1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
+1. Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
 
-2.  What customer business needs do you need to address with your solution?
+2. What customer business needs do you need to address with your solution?
 
 **Design**
 
@@ -117,55 +116,55 @@ Directions: With all participants at your table, respond to the following questi
 
 *High-level architecture*
 
-1.  Without getting into the details (the following sections will address the details), diagram your initial vision for the solution. You will refine this diagram as you proceed.
+1. Without getting into the details (the following sections will address the details), diagram your initial vision for the solution. You will refine this diagram as you proceed.
 
 *Component Classification*
 
-1.  What is the general pipeline for approaching the training of text analytic models such as this? What are the general steps you need to take to prepare the text data for performing tasks like classification?
+1. What is the general pipeline for approaching the training of text analytic models such as this? What are the general steps you need to take to prepare the text data for performing tasks like classification?
 
-2.  Provided that Trey wants to build the PoC using Azure Machine Learning, what is the first item they would want to deploy in Azure? 
+2. Provided that Trey wants to build the PoC using Azure Machine Learning, what is the first item they would want to deploy in Azure?
 
-3.  Within the above deployed item, what component would they use to orchestrate the various **machine learning** phases (specifically data access, model training and model evaluation)? Be specific about which programming language and framework or SDK they would use.
+3. Within the above deployed item, what component would they use to orchestrate the various **machine learning** phases (specifically data access, model training and model evaluation)? Be specific about which programming language and framework or SDK they would use.
 
-4.  Where would they author any scripts?
+4. Where would they author any scripts?
 
 5. Where should Trey upload the component compliance data?
 
-6.  Describe at a high level the objects involved in the scripted pipeline you would create for training the compliance classification model using Azure Machine Learning.
+6. Describe at a high level the objects involved in the scripted pipeline you would create for training the compliance classification model using Azure Machine Learning.
 
-7.  Diagram what happens when you run a machine learning pipeline in Azure Machine Learning.
+7. Diagram what happens when you run a machine learning pipeline in Azure Machine Learning.
 
 *Enabling DevOps for AI with MLOps*
 
-1.  Building on the approach you suggested to Trey for machine learning pipelines, what would you propose they use to fold them into a bigger DevOps pipeline for continuous integration and delivery that would result in a new scoring web service being deployed whenever there was a change to the code supporting model training. 
+1. Building on the approach you suggested to Trey for machine learning pipelines, what would you propose they use to fold them into a bigger DevOps pipeline for continuous integration and delivery that would result in a new scoring web service being deployed whenever there was a change to the code supporting model training.
 
-2.  In your Azure Pipelines design, give an example of what would trigger the execution of the pipeline?
+2. In your Azure Pipelines design, give an example of what would trigger the execution of the pipeline?
 
-3.  What type of Azure Pipeline would be triggered first in response (Build or Release)? 
+3. What type of Azure Pipeline would be triggered first in response (Build or Release)?
 
-4.  What are the core steps in this first pipeline? What does the pipeline output?
+4. What are the core steps in this first pipeline? What does the pipeline output?
 
-5.  After the first pipeline, what kind of Azure Pipeline would Trey define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
+5. After the first pipeline, what kind of Azure Pipeline would Trey define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
 
-6.  How would Trey modify the aforementioned deployment pipeline to enforce that a manual sign-off is performed before the web service could be deployed into the production environment?
+6. How would Trey modify the aforementioned deployment pipeline to enforce that a manual sign-off is performed before the web service could be deployed into the production environment?
 
-7.  How could Trey configure their Azure Pipelines so as to avoid hardcoding credentials to access Azure resources?
+7. How could Trey configure their Azure Pipelines so as to avoid hardcoding credentials to access Azure resources?
 
 *Monitoring in Production*
 
-1.  How would you recommend Trey collect diagnostics of the scoring web service in production?
+1. How would you recommend Trey collect diagnostics of the scoring web service in production?
 
-2.  How can Trey collect the data input to the scoring web service and the outputs that result, such that they could monitor how the model is performing in production?
+2. How can Trey collect the data input to the scoring web service and the outputs that result, such that they could monitor how the model is performing in production?
 
 **Prepare**
 
 Directions: With all participants at your table:
 
-1.  Identify any customer needs that are not addressed with the proposed solution.
+1. Identify any customer needs that are not addressed with the proposed solution.
 
-2.  Identify the benefits of your solution.
+2. Identify the benefits of your solution.
 
-3.  Determine how you will respond to the customer's objections.
+3. Determine how you will respond to the customer's objections.
 
 Prepare a 15-minute chalk-talk style presentation to the customer.
 
@@ -181,21 +180,21 @@ Timeframe: 30 minutes
 
 Directions:
 
-1.  Pair with another table.
+1. Pair with another table.
 
-2.  One table is the Microsoft team and the other table is the customer.
+2. One table is the Microsoft team and the other table is the customer.
 
-3.  The Microsoft team presents their proposed solution to the customer.
+3. The Microsoft team presents their proposed solution to the customer.
 
-4.  The customer makes one of the objections from the list of objections.
+4. The customer makes one of the objections from the list of objections.
 
-5.  The Microsoft team responds to the objection.
+5. The Microsoft team responds to the objection.
 
-6.  The customer team gives feedback to the Microsoft team.
+6. The customer team gives feedback to the Microsoft team.
 
-7.  Tables switch roles and repeat Steps 2-6.
+7. Tables switch roles and repeat Steps 2-6.
 
-##  Wrap-up 
+##  Wrap-up
 
 Timeframe: 15 minutes
 
