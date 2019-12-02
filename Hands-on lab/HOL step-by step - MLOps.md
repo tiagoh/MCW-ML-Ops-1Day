@@ -248,6 +248,12 @@ Duration: 20 minutes
 
 Duration: 25 minutes
 
+> **Note**: This exercise requires the new version of the **Pipelines** user interface. To activate it, select **Pipelines** from the left navigation. If the first option below **Pipelines** is **Builds**, you are still running on the previous version of the user interface. In this case, a popup should appear suggesting the activation of the new user interface.
+>
+> ![Activate the new Azure Pipelines user interface.](media/devops-ui-activation.png 'Multi-stage pipelines activation')
+>
+> Select **Try it!** to activate the new Pipelines user interface. When successfully activated, the first option below **Pipelines** from the left navigation will change to **Pipelines**.
+
 ### Task 1: Setup Build Pipeline
 
 1. From left navigation select **Pipelines, Pipelines** and then select **Create pipeline**.
