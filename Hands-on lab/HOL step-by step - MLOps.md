@@ -490,7 +490,7 @@ Duration: 30 minutes
 
 ### Task 1: Make Edits to Source Code
 
-1. Navigate to: **Repos -> Files -> scripts -> train.py**.
+1. Navigate to: **Repos -> Files -> scripts -> `train.py`**.
 
 2. **Edit** `train.py`.
 
