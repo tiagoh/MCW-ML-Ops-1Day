@@ -564,7 +564,7 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
 2. Follow the instructions within the notebook to complete the task. When finished, your deployed model has now both [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) integration and data collection activated.
 
-3. Note that if there are errors (for example, `Too many requests for service compliance-classifier-service (overloaded)`) when you make calls against the deployed web service after your enable app insights (last cell in the `Model Telemetry` notebook). Please wait for 5 minutes and rerun the cell to make a few calls against the deployed web service.
+3. Note that if there are errors (for example, `Too many requests for service compliance-classifier-service (overloaded)`) when you make calls against the deployed web service after your enable app insights (last cell in the `Model Telemetry` notebook), you should wait for 5 minutes and rerun the cell to make the calls.
 
 ### Task 2: Check Application Insights telemetry
 
