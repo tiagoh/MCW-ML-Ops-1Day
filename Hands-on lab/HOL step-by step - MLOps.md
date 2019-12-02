@@ -557,7 +557,7 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
 2. Follow the instructions within the notebook to complete the task. When finished, your deployed model has now both [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) integration and data collection activated.
 
-3. Note that if there are errors (for example, `Too many requests for service compliance-classifier-service (overloaded)`) when you make calls against the deployed web service after your enable app insights (last cell in the `Model Telemetry` notebook). Please wait for 5 minutes and rerun the cell to make few calls against the deployed web service.
+3. Note that if there are errors (for example, `Too many requests for service compliance-classifier-service (overloaded)`) when you make calls against the deployed web service after your enable app insights (last cell in the `Model Telemetry` notebook). Please wait for 5 minutes and rerun the cell to make a few calls against the deployed web service.
 
 ### Task 2: Check Application Insights telemetry
 
@@ -565,23 +565,23 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
 2. Locate the Application Insights instance in the resource group and click on it.
 
-    ![Application Insights instance in resource group.](media/telemetry-01.png 'Resource Group Overview')
+    ![Application Insights instance in resource group.](media/model-telemetry-01.png 'Resource Group Overview')
 
 3. Go to **Overview**.
 
 4. From the top row of the right section select **Logs (Analytics)**. This will open the Application Insights query editor with an empty new query.
 
-    ![From Application Insights Dashboard, select Logs to open the Query Editor.](media/telemetry-02.png 'Application Insights - Dashboard')
+    ![From Application Insights Dashboard, select Logs to open the Query Editor.](media/model-telemetry-02.png 'Application Insights - Dashboard')
 
 5. In the left pane, make sure the **Schema** tab is selected.
 
 6. Hover over **requests** and click the icon on the right side - "Show sample records from this table".
 
-    ![In Application Insights create requests query.](media/telemetry-03.png 'Create Requests Query')
+    ![In Application Insights create requests query.](media/model-telemetry-03.png 'Create Requests Query')
 
 7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute, call again your model, and click **Run** to re-execute the Application Insights query.
 
-   ![In Application Insights observe requests query results.](media/telemetry-04.png 'Requests Query Results')
+   ![In Application Insights observe requests query results.](media/model-telemetry-04.png 'Requests Query Results')
 
 *Note that if you do not see telemetry information after selecting **Run** to re-execute the Application insights query. Please rerun the last cell in the `Model Telemetry` notebook few more times to generate more data. Then select **Run** on this page to re-execute the Application insights query.*
 
@@ -590,19 +590,19 @@ In this exercise you learn how to monitor the performance of a deployed model.
 1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
 2. Locate the Storage Account instance in the resource group and click on it.
 
-    ![From the Resource Group Overview locate the Telemetry Storage account](media/telemetry-05.png 'Resource Group Overview')
+    ![From the Resource Group Overview locate the Telemetry Storage account](media/model-telemetry-05.png 'Resource Group Overview')
 
 3. Go to **Storage Explorer (preview)**.
 
 4. Expand the **BLOB CONTAINERS** section and identify the **modeldata** container. Select **More->Refresh** if you do not see **modeldata** container.
 
-    ![Locate the telemetry blob container in the storage account.](media/telemetry-06.png 'Storage Explorer')
+    ![Locate the telemetry blob container in the storage account.](media/model-telemetry-06.png 'Storage Explorer')
 
 5. Identify the CSV files containing the collected data. The path to the output blobs is based on the following structure:
 
     `modeldata -> subscriptionid -> resourcegroup -> workspace -> webservice -> model -> version -> identifier -> year -> month -> day -> data.csv`
 
-    ![Locate telemetry data in the blob container.](media/telemetry-07.png 'Storage Explorer - data.csv')
+    ![Locate telemetry data in the blob container.](media/model-telemetry-07.png 'Storage Explorer - data.csv')
 
 ## After the hands-on lab
 
@@ -612,7 +612,7 @@ To avoid unexpected charges, it is recommended that you clean up all of your lab
 
 ### Task 1: Clean up lab resources
 
-1. Navigate to the Azure Portal and locate the `MCW-AI-Lab` Resource Group you created for this lab.
+1. Navigate to the Azure Portal and locate the the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
 
 2. Select **Delete resource group** from the command bar.
 
