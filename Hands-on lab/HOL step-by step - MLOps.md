@@ -51,11 +51,11 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Exercise 5: Setup the Release Pipeline](#exercise-5-setup-the-release-pipeline)
     - [Task 1: Create an Empty Job](#task-1-create-an-empty-job)
     - [Task 2: Add Build Artifact](#task-2-add-build-artifact)
-    - [Task 3: Add Variables to Deploy & Test stage](#task-3-add-variables-to-deploy--test-stage)
-    - [Task 4: Setup Agent Pool for Deploy & Test stage](#task-4-setup-agent-pool-for-deploy--test-stage)
+    - [Task 3: Add Variables to Deploy &amp; Test stage](#task-3-add-variables-to-deploy-amp-test-stage)
+    - [Task 4: Setup Agent Pool for Deploy &amp; Test stage](#task-4-setup-agent-pool-for-deploy-amp-test-stage)
     - [Task 5: Add Use Python Version task](#task-5-add-use-python-version-task)
     - [Task 6: Add Install Requirements task](#task-6-add-install-requirements-task)
-    - [Task 7: Add Deploy & Test Webservice task](#task-7-add-deploy--test-webservice-task)
+    - [Task 7: Add Deploy &amp; Test Webservice task](#task-7-add-deploy-amp-test-webservice-task)
     - [Task 8: Define Deployment Trigger](#task-8-define-deployment-trigger)
     - [Task 9: Enable Continuous Deployment Trigger](#task-9-enable-continuous-deployment-trigger)
     - [Task 10: Save the Release Pipeline](#task-10-save-the-release-pipeline)
@@ -79,15 +79,15 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Abstract and learning objectives
 
-In this hands-on lab, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments and most importantly, improves inferencing speed over the native model. You will build a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application and inferencing web service. After a first successful deployment, you will make updates to both the model, the and web application, and execute the pipeline once to achieve an updated deployment. You will also learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues.
+In this hands-on lab, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments, and most importantly, improves inferencing speed over the native model. You will build a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application, and inferencing web service. After a first successful deployment, you will make updates to both the model, the and web application, and execute the pipeline once to achieve an updated deployment. You will also learn how to monitor the model's performance after it is deployed, so Trey Research can be proactive with performance issues.
 
 At the end of this hands-on lab, you will be better able to implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.
 
 ## Overview
 
-Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes, to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. Trey Research has decades specializing in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.
+Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. Trey Research has decades specializing in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.
 
-As their first effort of this combined initiative, they would like to define a process for operationalizing deep learning that encompasses all phases of the application life cycle along with model creation and deployment of a deep learning model. For this first proof of concept (PoC), they would like to focus on component compliance. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing (NLP) techniques to scan through vehicle specification documents to find compliance issues with new regulations. Even though this first scenario is focused on vehicle components, they believe this approach will generalize to any scenario involving an inventory of components, which all of their manufacturing customers deal with. The component descriptions, which are free form text, are entered and managed via a web application. This web application take new component descriptions entered by authorized technicians and label the component as compliant or non-compliant, based on the text.
+As their first effort of this combined initiative, they would like to define a process for operationalizing deep learning that encompasses all phases of the application life cycle along with model creation and deployment of a deep learning model. For this first proof of concept (PoC), they would like to focus on component compliance. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing (NLP) techniques to scan through vehicle specification documents to find compliance issues with new regulations. Even though this first scenario is focused on vehicle components, they believe this approach will generalize to any scenario involving an inventory of components, which all of their manufacturing customers deal with. The component descriptions, which are free form text, are entered and managed via a web application. This web application will take new component descriptions entered by authorized technicians and label the component as compliant or non-compliant, based on the text.
 
 They want to ensure the overall process they create enables them to update both the underlying model and the web app in one, unified pipeline. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues.
 
@@ -123,9 +123,9 @@ In this exercise, you create a model for classifying component text as compliant
 
 2. Follow the instructions within the notebook to complete the lab.
 
-3. In Azure Notebooks navigate to the `model` folder and download the **model.h5** file to your local disk. We will use the downloaded model file in the next exercise. *Note that if the downloaded file name is changed to `utf-8''model.h5` or `notebooks_model_model.h5`, then rename the file back to `model.h5`*.
+3. In Azure Notebooks, navigate to the `model` folder and download the **model.h5** file to your local disk. We will use the downloaded model file in the next exercise. *Note that if the downloaded file name is changed to `utf-8''model.h5` or `notebooks_model_model.h5`, then rename the file back to `model.h5`*.
 
-    >**Note**: The **model.h5** file is generated during the execution of the notebook at the previous step (step 2). When running the notebook, make sure the execution is successful and the file is correctly created.
+    >**Note**: The **model.h5** file is generated during the execution of the notebook at the previous step (step 2). When running the notebook, make sure the execution is successful, and the file is correctly created.
 
 ## Exercise 2: Registering the model
 
@@ -204,7 +204,7 @@ Duration: 20 minutes
 
 1. Select and open the `azure-pipelines.yml` file.
 
-2. Select **Edit** and update the following variables: `resourcegroup`, and `workspace`. If you are using your own Azure subscription, please provide names to use. If an environment is provided to you be sure to replace XXXXX in the values below with your unique identifier.
+2. Select **Edit** and update the following variables: `resourcegroup`, and `workspace`. If you are using your own Azure subscription, please provide names to use. If an environment is provided to you, be sure to replace XXXXX in the values below with your unique identifier.
 
     ![Edit build YAML file and provide your resource group and workspace information.](media/devops-build-pipeline-01.png 'Edit Build YAML file')
 
@@ -214,7 +214,7 @@ Duration: 20 minutes
   
 ### Task 4: Create new Service Connection
 
-1. From the left navigation select **Project settings** and then select **Service connections**.
+1. From the left navigation, select **Project settings** and then select **Service connections**.
 
     ![Navigate to Project Settings, Service connections section.](media/devops-build-pipeline-03.png 'Service Connections')
 
@@ -302,7 +302,7 @@ Duration: 25 minutes
 
     ![Select Artifacts, 1 published to review the artifact contents.](media/devops-build-pipeline-14.png 'Build Artifacts')
 
-2. Select **outputs, eval_info.json** and then select the download arrow. The `eval_info.json` is the output from the *model evaluation* step and the information from the evaluation step will be later used in the release pipeline to deploy the model. Select the back arrow to return to the previous screen.
+2. Select **outputs, eval_info.json**, and then select the download arrow. The `eval_info.json` is the output from the *model evaluation* step. The information from the evaluation step will be used in the release pipeline to deploy the model. Select the back arrow to return to the previous screen.
 
     ![Download output from the model evaluation step.](media/devops-build-pipeline-15.png 'Download JSON file')
 
@@ -312,11 +312,11 @@ Duration: 25 minutes
 
 ### Task 4: Review Build Outputs
 
-1. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook earlier. Open your **Models** section, and observe the versions of the registered model: `compliance-classifier`. The latest version is the one registered by the build pipeline you have run in the previous task.
+1. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook earlier. Open your **Models** section, and observe the versions of the registered model: `compliance-classifier`. The latest version is the one registered by the build pipeline you ran in the previous task.
 
     ![Review registered model in Azure Machine Learning studio.](media/devops-build-outputs-01.png 'Registered Models in Azure Machine Learning studio')
 
-2. Select the latest version of your model to review its properties. Notice the ```build_number``` tag which links the registered to model to the Azure DevOps build that generated it.
+2. Select the latest version of your model to review its properties. The ```build_number``` tag links the registered model to the Azure DevOps build that generated it.
 
     ![Review registered model properties, notice Build_Number tag.](!media/../media/devops-build-outputs-02.png 'Registered model details and Build_Number tag')
 
@@ -332,7 +332,7 @@ Duration: 25 minutes
 
     ![Review list of registered models that reference dataset in Azure Machine Learning studio.](media/devops-build-outputs-05.png 'Registered dataset model references in Azure Machine Learning studio')
 
-6. Log in to the [Azure Portal](https://portal.azure.com), open your **Resource Group, Workspace, Images** section and observe the deployment image created during the build pipeline: `compliance-classifier-image`.
+6. Log in to the [Azure Portal](https://portal.azure.com), open your **Resource Group, Workspace, Images** section, and observe the deployment image created during the build pipeline: `compliance-classifier-image`.
 
     ![Review deployment image in Azure Portal.](media/devops-build-outputs-06.png 'Images in Azure Portal')
 
@@ -454,7 +454,7 @@ Duration: 20 minutes
 
     ![Provide Working Directory for the Azure CLI task.](media/devops-release-pipeline-20.png 'Azure CLI Task - Working Directory')
 
-Please review the code in `aml_service/deploy.py`. This step will read the `eval_info.json` and if the evaluation step recommended to deploy the new trained model, it will deploy the new model to production in an **Azure Kubernetes Service (AKS)** cluster.
+Please review the code in `aml_service/deploy.py`. This step will read the `eval_info.json`, and if the evaluation step recommended to deploy the new trained model, it will deploy the new model to production in an **Azure Kubernetes Service (AKS)** cluster.
 
 ### Task 8: Define Deployment Trigger
 
@@ -518,7 +518,7 @@ Duration: 30 minutes
 
 ### Task 3: Monitor Release Pipeline
 
-1. Navigate to **Pipelines, Releases**. Observe that the Release pipeline is automatically trigger upon successful completion of the build pipeline. Select as shown in the figure to view pipeline logs.
+1. Navigate to **Pipelines, Releases**. Observe that the Release pipeline is automatically triggered upon successful completion of the build pipeline. Select as shown in the figure to view pipeline logs.
 
    ![Navigate to Pipelines, Releases and Select as shown in the figure to view pipeline logs.](media/devops-test-pipelines-05.png 'Pipelines - Releases')
 
@@ -556,7 +556,7 @@ In this exercise, you verify that the first release of the application works.
 
 Duration: 15 minutes
 
-In this exercise you learn how to monitor the performance of a deployed model.
+In this exercise, you learn how to monitor the performance of a deployed model.
 
 ### Task 1: Activate App Insights and data collection on the deployed model
 
@@ -570,32 +570,32 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
 1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
 
-2. Locate the Application Insights instance in the resource group and click on it.
+2. Locate the Application Insights instance in the resource group and select it.
 
     ![Application Insights instance in resource group.](media/model-telemetry-01.png 'Resource Group Overview')
 
 3. Go to **Overview**.
 
-4. From the top row of the right section select **Logs (Analytics)**. This will open the Application Insights query editor with an empty new query.
+4. From the top row of the right section, select **Logs (Analytics)**. This will open the Application Insights query editor with an empty new query.
 
     ![From Application Insights Dashboard, select Logs to open the Query Editor.](media/model-telemetry-02.png 'Application Insights - Dashboard')
 
 5. In the left pane, make sure the **Schema** tab is selected.
 
-6. Hover over **requests** and click the icon on the right side - "Show sample records from this table".
+6. Hover over **requests** and select the icon on the right side - "Show sample records from this table".
 
     ![In Application Insights create requests query.](media/model-telemetry-03.png 'Create Requests Query')
 
-7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute, call again your model, and click **Run** to re-execute the Application Insights query.
+7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute. Call your model wait a minute and select **Run** to re-execute the Application Insights query.
 
    ![In Application Insights observe requests query results.](media/model-telemetry-04.png 'Requests Query Results')
 
-*Note that if you do not see telemetry information after selecting **Run** to re-execute the Application insights query. Please rerun the last cell in the `Model Telemetry` notebook few more times to generate more data. Then select **Run** on this page to re-execute the Application insights query.*
+*Note that if you do not see telemetry information after selecting **Run** to re-execute the Application insights query. Please rerun the last cell in the `Model Telemetry` notebook a few more times to generate more data. Then select **Run** on this page to re-execute the Application insights query.*
 
 ### Task 3: Check the data collected
 
 1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
-2. Locate the Storage Account instance in the resource group and click on it.
+2. Locate the Storage Account instance in the resource group and select it.
 
     ![From the Resource Group Overview locate the Telemetry Storage account](media/model-telemetry-05.png 'Resource Group Overview')
 
@@ -619,7 +619,7 @@ To avoid unexpected charges, it is recommended that you clean up all of your lab
 
 ### Task 1: Clean up lab resources
 
-1. Navigate to the Azure Portal and locate the the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
+1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
 
 2. Select **Delete resource group** from the command bar.
 
