@@ -51,11 +51,11 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Exercise 5: Setup the Release Pipeline](#exercise-5-setup-the-release-pipeline)
     - [Task 1: Create an Empty Job](#task-1-create-an-empty-job)
     - [Task 2: Add Build Artifact](#task-2-add-build-artifact)
-    - [Task 3: Add Variables to Deploy &amp; Test stage](#task-3-add-variables-to-deploy-amp-test-stage)
-    - [Task 4: Setup Agent Pool for Deploy &amp; Test stage](#task-4-setup-agent-pool-for-deploy-amp-test-stage)
+    - [Task 3: Add Variables to Deploy and Test stage](#task-3-add-variables-to-deploy-and-test-stage)
+    - [Task 4: Setup Agent Pool for Deploy and Test stage](#task-4-setup-agent-pool-for-deploy-and-test-stage)
     - [Task 5: Add Use Python Version task](#task-5-add-use-python-version-task)
     - [Task 6: Add Install Requirements task](#task-6-add-install-requirements-task)
-    - [Task 7: Add Deploy &amp; Test Webservice task](#task-7-add-deploy-amp-test-webservice-task)
+    - [Task 7: Add Deploy and Test Webservice task](#task-7-add-deploy-and-test-webservice-task)
     - [Task 8: Define Deployment Trigger](#task-8-define-deployment-trigger)
     - [Task 9: Enable Continuous Deployment Trigger](#task-9-enable-continuous-deployment-trigger)
     - [Task 10: Save the Release Pipeline](#task-10-save-the-release-pipeline)
@@ -350,9 +350,9 @@ Duration: 20 minutes
 
     ![Select empty job to start building the release pipeline.](media/devops-release-pipeline-02.png 'Select a template: Empty job')
 
-3. Provide Stage name: `Deploy & Test` and close the dialog.
+3. Provide Stage name: `Deploy and Test` and close the dialog.
 
-    ![Provide stage name for the release stage.](media/devops-release-pipeline-03.png 'Deploy & Test Stage')
+    ![Provide stage name for the release stage.](media/devops-release-pipeline-03.png 'Deploy and Test Stage')
 
 ### Task 2: Add Build Artifact
 
@@ -364,7 +364,7 @@ Duration: 20 minutes
 
     ![Provide information to add the build artifact.](media/devops-release-pipeline-05.png 'Add a build artifact')
 
-### Task 3: Add Variables to Deploy & Test stage
+### Task 3: Add Variables to Deploy and Test stage
 
 1. Open **View stage tasks** link.
 
@@ -385,12 +385,12 @@ Duration: 20 minutes
     d. Name: `description` Value: `"Compliance Classifier Web Service"` *Note the double quotes around description value*.
 
     >**Note**:
-    >- Keep the scope for the variables to `Deploy & Test` stage.
+    >- Keep the scope for the variables to `Deploy and Test` stage.
     >- The name of the Azure region should be the same one that was used to create Azure Machine Learning workspace earlier on.
 
       ![Add four pipeline variables as name value pairs and save.](media/devops-release-pipeline-08.png 'Add Pipeline Variables')
 
-### Task 4: Setup Agent Pool for Deploy & Test stage
+### Task 4: Setup Agent Pool for Deploy and Test stage
 
 1. Open the **Tasks** tab.
 
@@ -432,7 +432,7 @@ Duration: 20 minutes
 
     ![Provide path to the Working Directory.](media/devops-release-pipeline-17.png 'Select Path Dialog')
 
-### Task 7: Add Deploy & Test Webservice task
+### Task 7: Add Deploy and Test Webservice task
 
 1. Select **Add a task to Agent job** (the **+** button), search for `Azure CLI`, and select **Add**.
 
@@ -440,7 +440,7 @@ Duration: 20 minutes
 
 2. Provide the following information for the Azure CLI task:
 
-    a. Display name: `Deploy & Test Webservice`
+    a. Display name: `Deploy and Test Webservice`
 
     b. Azure subscription: `quick-starts-sc` *This is the service connection we created in Exercise 1 / Task 4*.
 
@@ -458,11 +458,11 @@ Please review the code in `aml_service/deploy.py`. This step will read the `eval
 
 ### Task 8: Define Deployment Trigger
 
-1. Navigate to **Pipeline** tab, and select **Pre-deployment conditions** for the `Deploy & Test` stage.
+1. Navigate to **Pipeline** tab, and select **Pre-deployment conditions** for the `Deploy and Test` stage.
 
 2. Select **After release**.
 
-    ![Setup Pre-deployment conditions for the Deploy & Test stage.](media/devops-release-pipeline-21.png 'Pre-deployment Conditions Dialog')
+    ![Setup Pre-deployment conditions for the Deploy and Test stage.](media/devops-release-pipeline-21.png 'Pre-deployment Conditions Dialog')
 
 3. Close the dialog.
 
@@ -526,13 +526,13 @@ Duration: 30 minutes
 
 ### Task 4: Review Release Pipeline Outputs
 
-1. From the pipeline logs view, select **Deploy & Test Webservice** task to view details.
+1. From the pipeline logs view, select **Deploy and Test Webservice** task to view details.
 
-    ![Select Deploy & Test Webservice task to view details.](media/devops-test-pipelines-06.png 'Pipeline Logs')
+    ![Select Deploy and Test Webservice task to view details.](media/devops-test-pipelines-06.png 'Pipeline Logs')
 
 2. Observe the **Scoring URI** and **API Key** for the deployed webservice. Please note down both the `Scoring URI` and `API Key` for *Exercise 7*.
 
-    ![View Deploy & Test Webservice task logs and note down the Scoring URI of the deployed webservice.](media/devops-test-pipelines-07.png 'Deploy & Test Webservice Task Logs')
+    ![View Deploy and Test Webservice task logs and note down the Scoring URI of the deployed webservice.](media/devops-test-pipelines-07.png 'Deploy and Test Webservice Task Logs')
 
 3. Log in to Azure Machine Learning studio. Open your **Endpoints** section, and observe the deployed webservice: **compliance-classifier-service**.
 
