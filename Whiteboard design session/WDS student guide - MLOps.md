@@ -86,7 +86,7 @@ Finally, Trey would like to ensure that the process they establish is not litter
 
 1. We are not clear about the benefits that using ONNX might bring to our current scenario and future scenario.
 
-2. It seems like data scientists deploy their models as web services from their own python scripts, where as our developers are accustomed to using Azure DevOps to deploy their web services. Can we really have one tool that provides us build and deployment pipelines irrespective of whether we are deploying a model or web application code?
+2. It seems like data scientists deploy their models as web services from their own python scripts, whereas our developers are accustomed to using Azure DevOps to deploy their web services. Can we really have one tool that provides us build and deployment pipelines irrespective of whether we are deploying a model or web application code?
 
 3. Obviously, we can't just have new models automatically deployed into production. What kind of safeguards can we put in place?
 
@@ -104,7 +104,7 @@ Timeframe: 60 minutes
 
 **Business needs**
 
-Directions: With all participants at your table, answer the following questions and list the answers on a flip chart:
+Directions: With all the participants at your table, answer the following questions and list the answers on a flip chart:
 
 1. Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
 
@@ -182,7 +182,7 @@ Directions:
 
 1. Pair with another table.
 
-2. One table is the Microsoft team and the other table is the customer.
+2. One table is the Microsoft team, and the other table is the customer.
 
 3. The Microsoft team presents their proposed solution to the customer.
 

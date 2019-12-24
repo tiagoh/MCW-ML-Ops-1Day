@@ -116,17 +116,17 @@ Design a solution and prepare to present the solution to the target customer aud
 
 **Outcome**
 
-Present solution to your customer:
+Present the solution to your customer:
 
-- Present solution
+- Present solution.
 
-- Respond to customer objections
+- Respond to customer objections.
 
-- Receive feedback
+- Receive feedback.
 
 **Wrap-up (15 minutes)**
 
-- Review preferred solution
+- Review the preferred solution.
 
 ## Before the whiteboard design session: How to prepare
 
@@ -170,7 +170,7 @@ When participants are doing activities, you can **look ahead to refresh your mem
 
 ## Abstract and learning objectives
 
-In this whiteboard design session, you will work in a group to design a process Trey Research can follow for orchestrating and deploying updates to the application and the deep learning model in a unified way. You will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will design a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application and inferencing web service. You will learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues. You will investigate the potential to standardize the model format to ONNX to simplify inference runtime code (by enabling pluggability of different models and targeting a broad range of runtime environments) and most importantly to improve inferencing speed over the native model.
+In this whiteboard design session, you will work in a group to design a process Trey Research can follow for orchestrating and deploying updates to the application and the deep learning model in a unified way. You will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will design a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application, and referencing a web service. You will learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues. You will investigate the potential to standardize the model format to ONNX to simplify inference runtime code (by enabling pluggability of different models and targeting a broad range of runtime environments) and most importantly to improve inferencing speed over the native model.
 
 At the end of this whiteboard design session, you will be better able to design end-to-end solutions that will fully operationalize deep learning models, inclusive of all application components that depend on the model.
 
@@ -194,7 +194,7 @@ Directions:  With all participants in the session, the facilitator/SME presents 
 
 Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. Trey Research has decades specializing in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.
 
-As their first effort of this combined initiative, they would like to define a process for operationalizing deep learning that encompasses all phases of the application life cycle along with model creation and deployment of a deep learning model. For this first proof of concept, they would like to focus on component compliance. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. Even though this first scenario is focused on vehicle components, they believe this approach will generalize to any scenario involving an inventory of components, which all of their manufacturing customers deal with. The component descriptions, which are free form text, are entered and managed via a web application. This web application take new component descriptions entered by authorized technicians and labels the component as compliant or non-compliant based on the text. For the PoC, they have exported all of their labeled component descriptions as flat files (CSV format).
+As their first effort of this combined initiative, they would like to define a process for operationalizing deep learning that encompasses all phases of the application life cycle along with model creation and deployment of a deep learning model. For this first proof of concept, they would like to focus on component compliance. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. Even though this first scenario is focused on vehicle components, they believe this approach will generalize to any scenario involving an inventory of components, which all of their manufacturing customers deal with. The component descriptions, which are free form text, are entered and managed via a web application. This web application will take new component descriptions entered by authorized technicians and labels the component as compliant or non-compliant based on the text. For the PoC, they have exported all of their labeled component descriptions as flat files (CSV format).
 
 According to Francine Fischer, CIO of Trey Research, they want to ensure the overall process they create enables them to update both the underlying model and the web app in one using a standardized approach. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues. They believe they can accomplish most, if not all, of this using Azure Machine Learning but are wanting to be certain.
 
@@ -212,7 +212,7 @@ Finally, Trey would like to ensure that the process they establish is not litter
 
 1. We are not clear about the benefits that using ONNX might bring to our current scenario and future scenario.
 
-2. It seems like data scientists deploy their models as web services from their own python scripts, where as our developers are accustomed to using Azure DevOps to deploy their web services. Can we really have one tool that provides us build and deployment pipelines irrespective of whether we are deploying a model or web application code?
+2. It seems like data scientists deploy their models as web services from their own python scripts, whereas our developers are accustomed to using Azure DevOps to deploy their web services. Can we really have one tool that provides us a build and deployment pipelines irrespective of whether we are deploying a model or web application code?
 
 3. Obviously, we can't just have new models automatically deployed into production. What kind of safeguards can we put in place?
 
@@ -308,7 +308,7 @@ Directions:
 
 1. Pair with another table.
 
-2. One table is the Microsoft team and the other table is the customer.
+2. One table is the Microsoft team, and the other table is the customer.
 
 3. The Microsoft team presents their proposed solution to the customer.
 
@@ -510,7 +510,7 @@ The primary audience is the business decision makers and technology decision mak
 
     ONNX provides two potential benefits to Trey's scenario. First, ONNX provides a common model format that can be run within a wide range of environments, without needing the libraries that were used to create the model. For example, if a model is created with Keras, they would need neither Keras nor TensorFlow to use the model for scoring. They would only need the ONNX Runtime. This enables the ONNX model to be used in web services, in .NET applications, on IoT devices and on mobile devices without additional effort. Second, because ONNX effectively re-compiles a model when converting to the ONNX format, it may provide some optimizations that improve the scoring performance. In some tests, improvements of 2x on average in the time taken to inference were experienced.
 
-2. It seems like data scientists deploy their models as web services from their own python scripts, where as our developers are accustomed to using Azure DevOps to deploy their web services. Can we really have one tool that provides us build and deployment pipelines irrespective of whether we are deploying a model or web application code?
+2. It seems like data scientists deploy their models as web services from their own python scripts, whereas our developers are accustomed to using Azure DevOps to deploy their web services. Can we really have one tool that provides us build and deployment pipelines irrespective of whether we are deploying a model or web application code?
 
     Yes. Both of these scenarios are supported by Azure DevOps and Azure Pipelines.
 
