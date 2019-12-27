@@ -109,7 +109,7 @@ The overall approach used in this lab is to orchestrate continuous integration a
 
 ## Before the hands-on lab
 
-Refer to the [Before the hands-on lab setup guide manual](./Before&#32;the&#32;HOL&#32;-&#32;MLOps.md) before continuing to the lab exercises.
+Refer to the [Before the hands-on lab setup guide](./Before&#32;the&#32;HOL&#32;-&#32;MLOps.md) before continuing to the lab exercises.
 
 ## Exercise 1: Creating and evaluating compliance classification models
 
@@ -133,8 +133,7 @@ Duration: 15 minutes
 
 In this exercise, you explore the approaches you can take to managing the model versions, their association with Experiment Runs, and how you can retrieve the models both programmatically and via the [Azure Machine Learning studio](https://ml.azure.com).
 
->**Note:**
->The new [Azure Machine Learning studio](https://ml.azure.com) provides a new immersive experience for managing the end-to-end machine learning lifecyle. You can use it either by logging in directly to it or by selecting the ```Launch the new Azure Machine Learning studio``` option in the ```Overview``` section of your Azure Machine Learning workspace.
+>**Note:** The new [Azure Machine Learning studio](https://ml.azure.com) provides a new immersive experience for managing the end-to-end machine learning lifecycle. You can use it either by logging in directly to it or by selecting the ```Launch the new Azure Machine Learning studio``` option in the ```Overview``` section of your Azure Machine Learning workspace.
 
 ### Task 1: Register Model using Azure Machine Learning Python SDK
 
