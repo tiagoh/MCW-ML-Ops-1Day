@@ -157,7 +157,7 @@ In this exercise, you explore the approaches you can take to managing the model 
 
    b. Description: `Deep learning model to classify the descriptions of car components as compliant or non-compliant.`
 
-   c. Model Framework: `TFKeras`
+   c. Model Framework: `TensorFlow`
 
    d. Model Framework Version: `2.0`
 
