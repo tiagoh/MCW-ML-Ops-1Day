@@ -226,7 +226,7 @@ Duration: 20 minutes
 
     ![Commit your changes to the build YAML file.](media/devops-build-pipeline-02.png 'Commit Build YAML file')
   
-### Task 4: Create new Service Connection
+### Task 4: Create new Service Connection (NOTE: This specific task is ***not required***. Please ask your proctor for more details if needed)
 
 1. From the left navigation, select **Project settings** and then select **Service connections**.
 
