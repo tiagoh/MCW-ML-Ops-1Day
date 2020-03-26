@@ -38,6 +38,11 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 # MLOps before the hands-on lab setup guide
 
+## Initial NOTICE
+
+Please note that this instructions where modified to fit the 1 day remote workshop format. 
+
+Feel free to check the original repo: https://github.com/microsoft/MCW-ML-Ops
 ## Requirements
 
 1. Azure subscription. You will need a valid and active Azure account to complete the quickstarts. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/).
@@ -52,7 +57,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
    >**Note**: You will need privileges to create projects on the DevOps account. Also, you need privileges to create Service Principal in the tenet. This translates to `Ensure that the user has 'Owner' or 'User Access Administrator' permissions on the Subscription`.
 
-3. Azure Notebooks. You will need an Azure Notebooks project to import the quickstart notebooks into. See instructions below on how to prepare your Azure Notebooks environment.
+3. Azure Machine Learning service workspace. We will be using a [Compute Instance](https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance) for the execution of the notebooks required for this workshop. See the instructions detailed below in order  to prepare your enviroment.
 
 4. Azure Machine Learning service workspace. The workspace is created during Exercise 1 from the hands-on lab.
 
@@ -62,42 +67,93 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 Duration: 5 minutes
 
-At a high level, here are the setup tasks you will need to perform to prepare your Azure Notebooks Environment (the detailed instructions follow):
+For this workshop we will be using [Compute Instance](https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance) since it provides a fully-managed cloud-based workstation for data scientists.  
 
-1. Setup an Azure Notebooks account.
+In the Compute Instance you will be able to execute the  required notebooks for this hands-on workshop.  
 
-2. Setup an Azure Notebooks Project.
+At a high level, here are the setup tasks you will need to perform to prepare your Compute Instance and enviroment (the detailed instructions follow):
 
-3. Start the Notebook Server.
+1. Create an Azure Machine Learning workspace.
 
-### Task 1: Setup an Azure Notebooks account
+2. Provision a Compute Instance
 
-1. In your browser, navigate to [https://notebooks.azure.com](https://notebooks.azure.com).
+3. Import the required notebooks for this workshop
 
-2. Select **Sign In** from the top, right corner and sign in using your Microsoft Account credentials. After a successful login, you will have implicitly created the account and are ready to continue.
+### Task 1: Create an Azure Machine Learning workspace
 
-### Task 2: Setup an Azure Notebooks project
+1. In your browser, navigate to the [Azure Portal](https://portal.azure.com).
 
-1. Log in to Azure Notebooks.
+2. After sucesfull login with your corporate credentials, Click on **"Create Resource"**:
 
-2. Navigate to the **My Projects** page.
+   ![Create Resource on Azure Portal](media/azure-portal-create-resource.png 'Create Resource')
 
-3. Select **Upload GitHub Repo**.
+3. Search for **"Machine Learning"** in the search input box (pick the first option as shown below):
 
-4. In the Upload GitHub Repository dialog, for the GitHub repository provide ```microsoft/MCW-ML-Ops```, and select **Import**. Allow the import a few moments to complete, the dialog will dismiss once the import has completed.
+   ![Search for Machine Learning](media/azure-portal-search-machine-learning.png 'Search for Machine Learning')
 
-   ![Upload GitHub Repository Dialog where you enter repository URL and select import.](media/prepare-01.png 'Upload GitHub Repository Dialog')
+4. Click on **"Create"** in order to create the Azure Machine Learning workspace:
 
-5. Once the import is complete, a new project named ```mcw-mlops``` is available in your account. All the notebooks mentioned in the hands-on lab are available in the following location: ```\Hands-on Lab\notebooks```.
+   ![Create Azure Machine Learning service](media/azure-portal-create-aml.png 'Create Azure Machine Learning')
 
-### Task 3: Start the Notebook server
+5. Fill the details has described below.
 
-1. Navigate to your project: ```mcw-mlops```.
+   Please note:
+   - For the "Workspace Name" replace the XXX by your name
+   - Ask your proctor for the Resource group name to be used
 
-2. Start your Notebook server on **Free Compute** by selecting the **Play** icon in the toolbar as shown:
+   ![Create Azure Machine Learning service details](media/azure-portal-create-aml-workspace.png 'Create Azure Machine Learning service details')
 
-   ![Select Play icon to Start Notebook Server on Free Compute.](media/prepare-02.png 'Start Notebook Server')
+6. The Azure Machine Learning workspace will be created and available for you shortly:
 
-3. This will open the **Jupyter Notebooks** interface.
+   ![Create Azure Machine Learning service creation](media/azure-portal-create-aml-workspace-creation.png 'Create Azure Machine Learning service creation')
+
+### Task 2: Create a Compute Instance in your Azure Machine Learning workspace
+
+1. In your browser, navigate to the [Azure Machine Learning portal](https://ml.azure.com).
+
+2. Choose the workspace you created before:
+
+   ![Choose Azure Machine Learning workspace](media/aml-portal-choose-workspace.png 'Choose Azure Machine Learning workspace')
+
+3. Click on the left menu in the **Compute** section: 
+
+![Azure Machine Learning - Choose Compute](media/aml-portal-create-compute.png 'Choose Azure Machine Learning compute')
+
+4. Click on **"New"**:
+
+![Azure Machine Learning - Create Compute Instance](media/aml-portal-create-computeinstance.png 'Azure Machine Learning Create Compute Instance')
+
+5. Fill the details has shown below (note: provide any name that is suitable for you):
+
+![Azure Machine Learning - Create Compute Instance details](media/aml-portal-create-ci-details.png 'Azure Machine Learning Create Compute Instance details')
+
+6. After a few minutes your Compute Instance should be up and running: 
+
+![Azure Machine Learning - Compute Instance running](media/aml-portal-ci-running.png 'Azure Machine Learning Create Compute Instance running')
+
+7. Click on Jupyter (or JupyterLab):
+
+![Azure Machine Learning - Jupyther](media/aml-jupyther-default.png 'Azure Machine Learning Jupyther')
+
+8. Click on "New Terminal":
+
+![Azure Machine Learning - Jupyther New Terminal](media/aml-jupyther-new-terminal.png 'Azure Machine Learning Compute Instance Jupyther Terminal')
+
+9. Execute the following commands on the terminal:
+ 
+ ```$ cd Users/```  
+ ```$ ls ```  
+ ```$ cd XXX``` (where XXX  is your username)  
+ ```$ git clone https://github.com/tiagoh/MCW-ML-Ops-1Day```
+
+ Below you seen the result of the execution of the previous commands: 
+
+![Azure Machine Learning - Jupyther Commands](media/aml-jupyther-terminal-commands.png 'Azure Machine Learning Compute Instance Jupyther Commands')
+
+10. Get back to the [Azure Machine Learning portal](https://ml.azure.com), select the **Notebooks** section. You should now see the contents of the previously cloned repository including the notebooks that we will be using later on the workshop:
+
+![Azure Machine Learning - Notebooks](media/aml-notebooks.png 'Azure Machine Learning Notebooks')
+
+
 
 You should follow all steps provided *before* performing the Hands-on lab.
