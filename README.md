@@ -6,6 +6,23 @@ All the content available in this repo (and specially all the credits!) is based
 
 We have simply modified slightly the agenda, structure and some content to tailor it into a 1 day workshop.
 
+**Agenda**: 
+
+*09:00 - 11:30* Presentation and Demo  
+Introduction to Azure Machine Learning, brief overview, key features and MLOps  
+Architecture E2E for Machine Learning and MLOps
+
+*11:30 - 13:30* Personal Time / Lunch break
+ 
+*13:30 - 16:30* Hands-on Lab (self paced)  
+Possibly ad-hoc meeting to discuss common problems during lab execution  
+Questions can be asked in Teams chat  
+Individual calls with the proctors if needed during this time  
+ 
+*16:30 - 17:00* Wrap-up and Q&A
+
+**Note:** *Whiteboard design session was removed due the remote nature of the workshop. You can still see the content in the `original_unused\Whiteboard design session` folder*
+
 # MLOps
 
 Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automation, to providing cutting edge approaches that generate new opportunities. Trey Research has decades specializing in data science and application development that until now were separate units. They would like to unlock the greater, long term value by combining the two units into one, and follow one standardized process for operationalizing their innovations.
@@ -29,7 +46,12 @@ In this workshop, you will learn how Trey Research can leverage Deep Learning te
 
 At the end of this workshop, you will be better able to design and implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.
 
+### Presentation and Demo
+
+
 ### Whiteboard design session
+
+**Note**: *This section is not in the workshop agenda due the remote nature. We have kept this section for further reference and the contents on the `original_unused\Whiteboard design session` folder*
 
 In this whiteboard design session, you will work in a group to design a process Trey Research can follow for orchestrating and deploying updates to the application and the deep learning model in a unified way. You will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments and most importantly improves inferencing speed over the native model. You will design a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application and inferencing web service. You will also learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues.
 
