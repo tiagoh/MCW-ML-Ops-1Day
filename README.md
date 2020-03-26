@@ -1,3 +1,11 @@
+# Before you start - IMPORTANT NOTICE
+
+This repository is a fork of the following Github repository: https://github.com/microsoft/MCW-ML-Ops
+
+All the content available in this repo (and specially all the credits!) is based on the exising Microsoft Cloud Workshop - MLOps available available on its original source.
+
+We have simply modified slightly the agenda, structure and some content to tailor it into a 1 day workshop.
+
 # MLOps
 
 Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automation, to providing cutting edge approaches that generate new opportunities. Trey Research has decades specializing in data science and application development that until now were separate units. They would like to unlock the greater, long term value by combining the two units into one, and follow one standardized process for operationalizing their innovations.
