@@ -119,7 +119,10 @@ In this exercise, you create a model for classifying component text as compliant
 
 ### Task 1: Create the classification model using a notebook
 
-1. Browse to your Azure Notebooks project and navigate to `Deep Learning with Text.ipynb`. This is the notebook you will step through executing in this lab.
+1. Browse to your Azure Machine Learning - Notebooks and navigate to `Deep Learning with Text.ipynb`. This is the notebook you will step through executing in this lab.
+
+![Azure Machine Learning - Notebooks Execution](media/aml-notebook-execute.png 'Azure Machine Learning Notebooks Execution')
+
 
 2. Follow the instructions within the notebook to complete the lab.
 
@@ -173,7 +176,7 @@ In this exercise, you explore the approaches you can take to managing the model 
 
 Duration: 20 minutes
 
-### Task 1: Create New Project
+### Task 1: Create New Project (NOTE: This specific task is ***not required***. Please ask your proctor which Azure DevOps project you should use)
 
 1. Sign in to [Azure DevOps](http://dev.azure.com).
 
