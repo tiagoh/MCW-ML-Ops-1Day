@@ -48,6 +48,13 @@ At the end of this workshop, you will be better able to design and implement end
 
 ### Presentation and Demo
 
+This presentation gives a gentle introduction to Azure Machine Learning by providing a brief overview of some key capabitilies before diving into MLOps.  
+
+It then gets into more detail on the typical E2E scenario of a Machine Learning project by providing a reference architecture for MLOps.  
+
+The discussed process and architecture is tipically used on Production scenarios across many Enterprise customers.
+
+The presentation deck is available in the `Presentation` folder
 
 ### Whiteboard design session
 
