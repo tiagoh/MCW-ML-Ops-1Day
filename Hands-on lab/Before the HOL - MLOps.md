@@ -30,9 +30,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [MLOps before the hands-on lab setup guide](#mlops-before-the-hands-on-lab-setup-guide)
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Setup an Azure Notebooks account](#task-1-setup-an-azure-notebooks-account)
-    - [Task 2: Setup an Azure Notebooks project](#task-2-setup-an-azure-notebooks-project)
-    - [Task 3: Start the Notebook server](#task-3-start-the-notebook-server)
+    - [Task 1: Create an Azure Machine Learning workspace](#Task-1:-Create-an-Azure-Machine-Learning-workspace)
+    - [Task 2: Create a Compute Instance in your Azure Machine Learning workspace](Task-2:-Create-a-Compute-Instance-in-your-Azure-Machine-Learning-workspace)
 
 <!-- /TOC -->
 
@@ -67,7 +66,7 @@ Feel free to check the original repo: https://github.com/microsoft/MCW-ML-Ops
 
 Duration: 5 minutes
 
-For this workshop we will be using [Compute Instance](https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance) since it provides a fully-managed cloud-based workstation for data scientists.  
+For this workshop we will be using an Azure Machine Learning **[Compute Instance](https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance)** since it provides a fully-managed cloud-based workstation for data scientists.  
 
 In the Compute Instance you will be able to execute the  required notebooks for this hands-on workshop.  
 
@@ -153,7 +152,5 @@ At a high level, here are the setup tasks you will need to perform to prepare yo
 10. Get back to the [Azure Machine Learning portal](https://ml.azure.com), select the **Notebooks** section. You should now see the contents of the previously cloned repository including the notebooks that we will be using later on the workshop:
 
 ![Azure Machine Learning - Notebooks](media/aml-notebooks.png 'Azure Machine Learning Notebooks')
-
-
 
 You should follow all steps provided *before* performing the Hands-on lab.
