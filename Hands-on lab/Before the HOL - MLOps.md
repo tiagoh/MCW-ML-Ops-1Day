@@ -58,10 +58,6 @@ Feel free to check the original repo: https://github.com/microsoft/MCW-ML-Ops
 
 3. Azure Machine Learning service workspace. We will be using a [Compute Instance](https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance) for the execution of the notebooks required for this workshop. See the instructions detailed below in order  to prepare your enviroment.
 
-4. Azure Machine Learning service workspace. The workspace is created during Exercise 1 from the hands-on lab.
-
-   >**Note**: Make sure you execute successfully all steps related to the Azure Machine Learning service workspace setup in Exercise 1. A correctly set up workspace is needed by all the other exercises.
-
 ## Before the hands-on lab
 
 Duration: 5 minutes
