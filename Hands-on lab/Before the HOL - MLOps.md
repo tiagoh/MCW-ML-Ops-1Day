@@ -30,8 +30,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [MLOps before the hands-on lab setup guide](#mlops-before-the-hands-on-lab-setup-guide)
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Create an Azure Machine Learning workspace](#Task-1:-Create-an-Azure-Machine-Learning-workspace)
-    - [Task 2: Create a Compute Instance in your Azure Machine Learning workspace](Task-2:-Create-a-Compute-Instance-in-your-Azure-Machine-Learning-workspace)
+    - [Task 1: Create an Azure Machine Learning workspace](#task-1:-create-an-azure-machine-learning-workspace)
+    - [Task 2: Create a Compute Instance in your Azure Machine Learning workspace](#task-2:-create-a-compute-instance-in-your-azure-machine-learning-workspace)
 
 <!-- /TOC -->
 
